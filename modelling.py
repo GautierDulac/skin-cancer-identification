@@ -11,17 +11,13 @@ import json
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-print('Using gpu: %s ' % torch.cuda.is_available())
+model_vgg = models.vgg16(pretrained=True)
+fpath = 'data/imagenet_class_index.json'
 
 ###Main function
 
 
 ###Core functions
-model_vgg = models.vgg16(pretrained=True)
-
-
-fpath = 'data/imagenet_class_index.json'
 
 with open(fpath) as f:
     class_dict = json.load(f)
@@ -39,20 +35,9 @@ vals_try, preds_try = torch.max(probs, dim=1)
 
 torch.sum(probs, 1)
 
-out = torchvision.utils.make_grid(inputs_try.data.cpu())
 
-imshow(out, title=[dset_classes[x] for x in labels_try.data.cpu()])
 
-"""### Modifying the last layer and setting the gradient false to all layers"""
-
-print(model_vgg)
-
-"""We'll learn about what these different blocks do later in the course. For now, it's enough to know that:
-
-- Convolution layers are for finding small to medium size patterns in images -- analyzing the images locally
-- Dense (fully connected) layers are for combining patterns across an image -- analyzing the images globally
-- Pooling layers downsample -- in order to reduce image size and to improve invariance of learned features
-
+"""###
 In this practical example, our goal is to use the already trained model and just change the number of output classes. To this end we replace the last ```nn.Linear``` layer trained for 1000 classes to ones with 2 classes. In order to freeze the weights of the other layers during training, we set the field ```required_grad=False```. In this manner no gradient will be computed for them during backprop and hence no update in the weights. Only the weights for the 2 class layer will be updated.
 """
 
@@ -60,8 +45,6 @@ for param in model_vgg.parameters():
     param.requires_grad = False
 model_vgg.classifier._modules['6'] = nn.Linear(4096, 2)
 model_vgg.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
-
-print(model_vgg.classifier)
 
 model_vgg = model_vgg.to(device)
 
