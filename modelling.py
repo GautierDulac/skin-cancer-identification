@@ -1,3 +1,17 @@
+###Imports
+
+
+###Constants
+
+
+###Main function
+
+
+###Core functions
+
+
+
+
 """## Creating VGG Model
 
 The torchvision module comes with a zoo of popular CNN architectures which are already trained on [ImageNet](http://www.image-net.org/) (1.2M training images). When called the first time, if ```pretrained=True``` the model is fetched over the internet and downloaded to ```~/.torch/models```.

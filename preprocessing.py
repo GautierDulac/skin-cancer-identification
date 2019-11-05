@@ -1,3 +1,15 @@
+###Imports
+
+
+###Constants
+
+
+###Main function
+
+
+###Core functions
+
+
 """## Data processing"""
 
 # Commented out IPython magic to ensure Python compatibility.
