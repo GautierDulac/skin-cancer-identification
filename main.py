@@ -13,6 +13,6 @@ num_workers=6
 
 
 ###Main function
-loader_train, loader_valid = split_train_valid_sets(data_dir, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers)
+dset_sizes, loader_train, loader_valid = split_train_valid_sets(data_dir, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers)
 
 
