@@ -1,4 +1,6 @@
 # cat requirements.txt
 
 pandas==0.25.1
-torch
+torch>=1.1.0
+numpy
+torchvision
