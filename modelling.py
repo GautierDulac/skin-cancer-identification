@@ -1,4 +1,5 @@
 ###Imports
+import json
 
 
 ###Constants
@@ -10,20 +11,12 @@
 ###Core functions
 model_vgg = models.vgg16(pretrained=True)
 
-!wget
-https: // s3.amazonaws.com / deep - learning - models / image - models / imagenet_class_index.json
 
-import json
-
-fpath = 'imagenet_class_index.json'
+fpath = 'data/imagenet_class_index.json'
 
 with open(fpath) as f:
     class_dict = json.load(f)
 dic_imagenet = [class_dict[str(i)][1] for i in range(len(class_dict))]
-
-! ls
-
-dic_imagenet[:4]
 
 inputs_try, labels_try = inputs_try.to(device), labels_try.to(device)
 
@@ -31,21 +24,11 @@ model_vgg = model_vgg.to(device)
 
 outputs_try = model_vgg(inputs_try)
 
-outputs_try
-
-outputs_try.shape
-
-"""To translate the outputs of the network into 'probabilities', we pass it through a [Softmax function](https://en.wikipedia.org/wiki/Softmax_function)"""
-
 m_softm = nn.Softmax(dim=1)
 probs = m_softm(outputs_try)
 vals_try, preds_try = torch.max(probs, dim=1)
 
 torch.sum(probs, 1)
-
-vals_try
-
-print([dic_imagenet[i] for i in preds_try.data])
 
 out = torchvision.utils.make_grid(inputs_try.data.cpu())
 
@@ -61,8 +44,6 @@ print(model_vgg)
 - Dense (fully connected) layers are for combining patterns across an image -- analyzing the images globally
 - Pooling layers downsample -- in order to reduce image size and to improve invariance of learned features
 
-![vgg16](https://mlelarge.github.io/dataflowr/Notebooks/vgg16.png)
-
 In this practical example, our goal is to use the already trained model and just change the number of output classes. To this end we replace the last ```nn.Linear``` layer trained for 1000 classes to ones with 2 classes. In order to freeze the weights of the other layers during training, we set the field ```required_grad=False```. In this manner no gradient will be computed for them during backprop and hence no update in the weights. Only the weights for the 2 class layer will be updated.
 """
 
@@ -70,8 +51,6 @@ for param in model_vgg.parameters():
     param.requires_grad = False
 model_vgg.classifier._modules['6'] = nn.Linear(4096, 2)
 model_vgg.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
-
-"""PyTorch documentation for [LogSoftmax](https://pytorch.org/docs/stable/nn.html#logsoftmax)"""
 
 print(model_vgg.classifier)
 
@@ -81,7 +60,6 @@ model_vgg = model_vgg.to(device)
 
 ### Creating loss function and optimizer
 
-PyTorch documentation for [NLLLoss](https://pytorch.org/docs/stable/nn.html#nllloss) and the [torch.optim module](https://pytorch.org/docs/stable/optim.html#module-torch.optim)
 """
 
 criterion = nn.NLLLoss()
@@ -115,9 +93,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
             epoch_loss, epoch_acc))
 
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%time
-# train_model(model_vgg,loader_train,size=dset_sizes['train'],epochs=2,optimizer=optimizer_vgg)
+train_model(model_vgg,loader_train,size=dset_sizes['train'],epochs=2,optimizer=optimizer_vgg)
 
 def test_model(model, dataloader, size):
     model.eval()
@@ -165,9 +141,6 @@ classes[:n_images]
 
 x_try = model_vgg.features(inputs_try)
 
-x_try.shape
-
-
 def preconvfeat(dataloader):
     conv_features = []
     labels_list = []
@@ -183,15 +156,9 @@ def preconvfeat(dataloader):
     return (conv_features, labels_list)
 
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%time
-# conv_feat_train,labels_train = preconvfeat(loader_train)
+conv_feat_train,labels_train = preconvfeat(loader_train)
 
-conv_feat_train.shape
-
-# Commented out IPython magic to ensure Python compatibility.
-# %%time
-# conv_feat_valid,labels_valid = preconvfeat(loader_valid)
+conv_feat_valid,labels_valid = preconvfeat(loader_valid)
 
 """### Creating a new data generator
 
@@ -229,9 +196,7 @@ def train_model(model, size, epochs=1, optimizer=None, dataloader=None):
             epoch_loss, epoch_acc))
 
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%time
-# train_model(model_vgg.classifier,size=dset_sizes['train'],epochs=50,optimizer=optimizer_vgg,dataloader=train_loader)
+train_model(model_vgg.classifier,size=dset_sizes['train'],epochs=50,optimizer=optimizer_vgg,dataloader=train_loader)
 
 valid_dataset = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
                  zip(conv_feat_valid, labels_valid)]
