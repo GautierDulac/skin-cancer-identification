@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import torch
 import torchvision
-from torchvision import models,transforms,datasets
+from torchvision import transforms,datasets
 
 
 ###Constants

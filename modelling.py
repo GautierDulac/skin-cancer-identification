@@ -3,12 +3,13 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torchvision
-from torchvision import models,transforms,datasets
+from torchvision import models
 from PIL import ImageFile
-ImageFile.LOAD_TRUNCATED_IMAGES = True
 import json
 
 ###Constants
+
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 print('Using gpu: %s ' % torch.cuda.is_available())
