@@ -1,8 +1,14 @@
 ###Imports
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import torch
+import torchvision
+from torchvision import models,transforms,datasets
 
 
 ###Constants
-data_dir = '/content/data/data'
+data_dir = '/data'
 
 
 ###Main function
