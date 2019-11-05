@@ -8,84 +8,58 @@ from PIL import ImageFile
 ###Constants
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-model_vgg = models.vgg16(pretrained=True)
 fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
 num_epochs = 50
-lr = 0.001
-
-
-
-###Main function
-
-
-
-#### from preprocessing part
-dset_sizes, loader_train, loader_valid = split_train_valid_sets(data_dir, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers)
-conv_feat_train, labels_train = preconvfeat(loader_train)
-conv_feat_valid, labels_valid = preconvfeat(loader_valid)
-dset_sizes_train = dset_sizes['train']
-dset_sizes_valid = dset_sizes['valid']
-
-loaderfeat_train = create_preconvfeat_loader(conv_feat_train, labels_train, batch_size_preconvfeat, shuffle_train)
-loaderfeat_valid = create_preconvfeat_loader(conv_feat_valid, labels_valid, batch_size_preconvfeat, shuffle_valid)
 
 #Define a neural network
 model_vgg = models.vgg16(pretrained=True)
 #Define a loss function
 criterion = nn.NLLLoss()
-#Define an otpimizer function
+#Define an optimizer function
+lr = 0.001
 optimizer_vgg = torch.optim.SGD(model_vgg.classifier[6].parameters(), lr=lr)
 
 
-train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=dset_sizes_train, epochs=num_epochs,
-            optimizer=optimizer_vgg)
+
+###Main function
+def main_model():
+    return
 
 
-
-predictions, all_proba, all_classes = validation_model(model_vgg.classifier, dataloader=valid_loader,
-                                                 size=dset_sizes['valid'])
 
 
 ###Core functions
-def preconvfeat(dataloader):
+def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle):
     '''
-    Precomputes features extraction from VGG network.
-
+    Precomputes features extraction and creates a loader to extracted features.
+    
     :param dataloader: dataloader
-    :return: features extracted with VGG network and labels associated
+    :param model: model from which we extract feature
+    :param batch_size_preconvfeat: how many samples per batch to load from the dataset containing extracted features
+    :param shuffle: set to True to have the extracted features dataset reshuffled at every epoch
+    :return: loaders for extracted features
     '''
+    dtype = torch.float
     conv_features = []
     labels_list = []
     for data in dataloader:
         inputs, labels = data
         inputs = inputs.to(device)
         labels = labels.to(device)
-        x = model_vgg.features(inputs)
+        x = model.features(inputs)
         conv_features.extend(x.data.cpu().numpy())
         labels_list.extend(labels.data.cpu().numpy())
+
     conv_features = np.concatenate([[feat] for feat in conv_features])
-    return conv_features, labels_list
-
-
-def create_preconvfeat_loader(conv_feat, labels, batch_size_preconvfeat, shuffle):
-    '''
-    Creates a loader to extracted features from a neural network.
-
-    :param conv_feat: features extracted with a network
-    :param labels: labels associated to features extracted with a network
-    :param batch_size_preconvfeat: how many samples per batch to load from the dataset containing extracted features
-    :param shuffle: set to True to have the extracted features dataset reshuffled at every epoch
-    :return: loaders for extracted features
-    '''
-    dtype = torch.float
     datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
                    zip(conv_feat, labels)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
     return loaderfeat
+
+
 
 
 def train_model(model, dataloader, size, epochs=1, optimizer=None):
@@ -157,3 +131,30 @@ def validation_model(model, dataloader, size):
     print('Loss: {:.4f} Acc: {:.4f}'.format(
                      epoch_loss, epoch_acc))
     return predictions, all_proba, all_classes
+
+
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers):
+    '''
+    Computes predictions, probabilities and classes for validation set with precomputed extracted features
+
+    :param model: neural network model
+    :param batch_size_train: how many samples per batch to load from train set
+    :param batch_size_val: how many samples per batch to load from validation set
+    :param shuffle_train: set to True to have the train set data reshuffled at every epoch
+    :param shuffle_val: set to True to have the validation set data reshuffled at every epoch
+    :param batch_size_preconvfeat: how many samples per batch to load from the dataset containing extracted features
+    :param num_workers: how many subprocesses to use for data loading
+    :return: predictions, probabilities and classes for the validation set
+    '''
+    train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
+                                                                                batch_size_val, shuffle_train,
+                                                                                shuffle_val, num_workers)
+    loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
+    loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+
+    #train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=optimizer)
+
+    #TODO: vérifier que dataloader (cf ipynb)
+    predictions, all_proba, all_classes = validation_model(model.classifier, dataloader=loaderfeat_valid,size=valid_size)
+    return predictions, all_proba, all_classes
+
