@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torchvision import models
 from PIL import ImageFile
+from preprocessing import split_train_valid_sets
 
 ###Constants
 ImageFile.LOAD_TRUNCATED_IMAGES = True
