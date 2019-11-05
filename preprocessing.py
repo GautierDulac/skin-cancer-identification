@@ -58,9 +58,6 @@ out = torchvision.utils.make_grid(inputs_try)
 
 imshow(out, title=[dset_classes[x] for x in labels_try])
 
-"""What is an image for your computer?"""
-
-inputs_try
 
 # Get a batch of training data
 inputs, classes = next(iter(loader_train))
