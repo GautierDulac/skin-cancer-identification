@@ -8,19 +8,7 @@
 
 
 ###Core functions
-
-
-
-
-"""## Creating VGG Model
-
-The torchvision module comes with a zoo of popular CNN architectures which are already trained on [ImageNet](http://www.image-net.org/) (1.2M training images). When called the first time, if ```pretrained=True``` the model is fetched over the internet and downloaded to ```~/.torch/models```.
-For next calls, the model will be directly read from there.
-"""
-
 model_vgg = models.vgg16(pretrained=True)
-
-"""We will first use VGG Model without any modification. In order to interpret the results, we need to import the 1000 ImageNet categories, available at: [https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json](https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json)"""
 
 !wget
 https: // s3.amazonaws.com / deep - learning - models / image - models / imagenet_class_index.json
