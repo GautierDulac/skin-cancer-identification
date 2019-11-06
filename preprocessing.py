@@ -33,7 +33,6 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
         normalize,
     ])
 
-
     dsets = {x: datasets.ImageFolder(data_dir + "/" + x, vgg_format)
              for x in ['train', 'valid']}
 
