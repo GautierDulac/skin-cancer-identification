@@ -33,7 +33,8 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
         normalize,
     ])
 
-    dsets = {x: datasets.ImageFolder(os.path.join(data_dir, x), vgg_format)
+
+    dsets = {x: datasets.ImageFolder(data_dir + "/" + x, vgg_format)
              for x in ['train', 'valid']}
 
     dset_sizes = {x: len(dsets[x]) for x in ['train', 'valid']}
@@ -45,7 +46,7 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
 
     return train_size, valid_size, loader_train, loader_valid
 
-
+split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers=6)
 
 
 
