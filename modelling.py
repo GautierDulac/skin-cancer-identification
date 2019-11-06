@@ -134,7 +134,7 @@ def validation_model(model, dataloader, size):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers, data_dir):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
