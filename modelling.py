@@ -134,7 +134,7 @@ def validation_model(model, dataloader, size):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers, data_dir):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -145,6 +145,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     :param shuffle_val: set to True to have the validation set data reshuffled at every epoch
     :param batch_size_preconvfeat: how many samples per batch to load from the dataset containing extracted features
     :param num_workers: how many subprocesses to use for data loading
+    :param data_dir:
     :return: predictions, probabilities and classes for the validation set
     '''
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
