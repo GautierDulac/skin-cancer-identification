@@ -1,6 +1,7 @@
 ###Imports
 from modelling import validation_model_preconvfeat
 from torchvision import models
+import torch
 
 ###Constants
 model_vgg = models.vgg16(pretrained=True)
@@ -10,7 +11,7 @@ batch_size_preconvfeat = 128
 shuffle_train=True
 shuffle_val=False
 num_workers=6
-
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 ###Main function
 
