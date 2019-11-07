@@ -120,7 +120,7 @@ def validation_model(model, dataloader, size):
         classes = classes.to(device)
         outputs = model(inputs)
         loss = criterion(outputs,classes)
-        _, preds = torch.max(outputs.data,1)
+        _,preds = torch.max(outputs.data,1)
             # statistics
         running_loss += loss.data.item()
         running_corrects += torch.sum(preds == classes.data)
@@ -160,6 +160,6 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     #train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=optimizer)
 
     #TODO: vérifier que dataloader (cf ipynb)
-    predictions, all_proba, all_classes = validation_model(model.classifier, dataloader=loaderfeat_valid,size=valid_size)
+    predictions, all_proba, all_classes = validation_model(model, dataloader=loaderfeat_valid,size=valid_size)
     return predictions, all_proba, all_classes
 
