@@ -148,7 +148,6 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     :param shuffle_val: set to True to have the validation set data reshuffled at every epoch
     :param batch_size_preconvfeat: how many samples per batch to load from the dataset containing extracted features
     :param num_workers: how many subprocesses to use for data loading
-    :param data_dir:
     :return: predictions, probabilities and classes for the validation set
     '''
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
@@ -157,9 +156,9 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
-    #train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=optimizer)
+    train_model(model_vgg, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
 
     #TODO: vérifier que dataloader (cf ipynb)
-    predictions, all_proba, all_classes = validation_model(model, dataloader=loaderfeat_valid,size=valid_size)
+    predictions, all_proba, all_classes = validation_model(model, dataloader=loaderfeat_valid, size=valid_size)
     return predictions, all_proba, all_classes
 
