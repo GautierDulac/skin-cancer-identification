@@ -14,6 +14,7 @@ num_workers=6
 
 ###Main function
 
+model_vgg = model_vgg.to(device)
 
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_vgg, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers)
 
