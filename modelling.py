@@ -116,6 +116,7 @@ def validation_model(model, dataloader, size):
     running_loss = 0.0
     running_corrects = 0
     for inputs, classes in dataloader:
+        print(inputs.size)
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
