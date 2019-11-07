@@ -126,7 +126,8 @@ def validation_model(model, dataloader, size):
         running_corrects += torch.sum(preds == classes.data)
         predictions[i:i+len(classes)] = preds.to('cpu').numpy()
         all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
-        print(outputs.data.to('cpu').numpy())
+        print(len(outputs.data.to('cpu').numpy()))
+        print(len(outputs.data.to('cpu').numpy()[0]))
         all_proba[i:i+len(classes), :] = outputs.data.to('cpu').numpy()
         i += len(classes)
     epoch_loss = running_loss / size
