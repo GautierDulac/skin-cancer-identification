@@ -56,7 +56,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
 
     conv_features = np.concatenate([[feat] for feat in conv_features])
     datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
-                   zip(conv_feat, labels)]
+                   zip(conv_features, labels)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
     return loaderfeat
