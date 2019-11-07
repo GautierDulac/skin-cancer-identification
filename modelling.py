@@ -16,6 +16,7 @@ num_epochs = 50
 
 #Define a neural network
 model_vgg = models.vgg16(pretrained=True)
+model_vgg = model_vgg.to(device)
 #Define a loss function
 criterion = nn.NLLLoss()
 #Define an optimizer function
