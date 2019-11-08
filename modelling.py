@@ -115,7 +115,7 @@ def validation_model(model, dataloader, size):
     model.eval()
     predictions = np.zeros(size)
     all_classes = np.zeros(size)
-    all_proba = np.zeros((size,1000))
+    all_proba = np.zeros((size,2))
     i = 0
     running_loss = 0.0
     running_corrects = 0
