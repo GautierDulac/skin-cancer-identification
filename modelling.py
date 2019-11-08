@@ -102,8 +102,6 @@ def validation_model(model, dataloader, size):
     :return: predictions, probabilities and classes for the validation set
     '''
     model.eval()
-    print("Model :")
-    print(model)
 
     predictions = np.zeros(size)
     all_classes = np.zeros(size)
@@ -114,15 +112,9 @@ def validation_model(model, dataloader, size):
     running_true_positives = 0
     running_positives = 0
     for inputs, classes in dataloader:
-        print("inputs :")
-        print(inputs.size())
-        print("classes :")
-        print(classes.size())
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
-        print("outputs :")
-        print(outputs.size())
         loss = criterion(outputs, classes)
         _, preds = torch.max(outputs.data, 1)
         # statistics
@@ -132,8 +124,6 @@ def validation_model(model, dataloader, size):
         running_positives += torch.sum(classes.data == 1)
         predictions[i:i+len(classes)] = preds.to('cpu').numpy()
         all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
-        print(len(outputs.data.to('cpu').numpy()))
-        print(len(outputs.data.to('cpu').numpy()[0]))
         all_proba[i:i+len(classes), :] = outputs.data.to('cpu').numpy()
         i += len(classes)
     epoch_loss = running_loss / size
@@ -161,45 +151,17 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     :return: predictions, probabilities and classes for the validation set
     '''
 
-    print(model.classifier)
 
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
 
-    for data in loader_train:
-        inputs, classes = data
-        print(inputs.size())
-        break
-
-    for data in loader_valid:
-        inputs, classes = data
-        print(inputs.size())
-        break
-
-    print(model.classifier)
-
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
-
-    for data in loaderfeat_train:
-        inputs, classes = data
-        print(inputs.size())
-        break
-
-    for data in loaderfeat_train:
-        inputs, classes = data
-        print(inputs.size())
-        break
-
-    print(model.classifier)
 
     train_model(model.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs,
                 optimizer=torch.optim.Adam(model.classifier.parameters(), lr=0.001))
 
-    print(model.classifier)
-
-    # TODO: vérifier que dataloader (cf ipynb)
     predictions, all_proba, all_classes = validation_model(model.classifier, dataloader=loaderfeat_valid,
                                                            size=valid_size)
     return predictions, all_proba, all_classes
