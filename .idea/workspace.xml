@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="4598000" />
+      <workItem from="1573121467085" duration="8213000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -152,7 +152,84 @@
       <option name="project" value="LOCAL" />
       <updated>1573126314161</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="UPDATE - debug">
+      <created>1573126429551</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1573126429551</updated>
+    </task>
+    <task id="LOCAL-00014" summary="UPDATE - debug">
+      <created>1573126557753</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1573126557753</updated>
+    </task>
+    <task id="LOCAL-00015" summary="UPDATE - debug">
+      <created>1573216381178</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1573216381178</updated>
+    </task>
+    <task id="LOCAL-00016" summary="UPDATE - debug">
+      <created>1573216614319</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1573216614319</updated>
+    </task>
+    <task id="LOCAL-00017" summary="UPDATE - debug">
+      <created>1573216727211</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1573216727211</updated>
+    </task>
+    <task id="LOCAL-00018" summary="UPDATE - debug">
+      <created>1573216912968</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573216912968</updated>
+    </task>
+    <task id="LOCAL-00019" summary="UPDATE - debug">
+      <created>1573217191915</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1573217191915</updated>
+    </task>
+    <task id="LOCAL-00020" summary="UPDATE - debug">
+      <created>1573217283290</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573217283290</updated>
+    </task>
+    <task id="LOCAL-00021" summary="UPDATE - debug">
+      <created>1573217415262</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1573217415262</updated>
+    </task>
+    <task id="LOCAL-00022" summary="UPDATE - debug remove print">
+      <created>1573217607236</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1573217607236</updated>
+    </task>
+    <task id="LOCAL-00023" summary="UPDATE - change size 2 to 1000 ? TEST">
+      <created>1573218117944</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218117944</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -183,7 +260,9 @@
     <MESSAGE value="Correct typo" />
     <MESSAGE value="UPDATE - test pipeline" />
     <MESSAGE value="UPDATE - debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - debug" />
+    <MESSAGE value="UPDATE - debug remove print" />
+    <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - change size 2 to 1000 ? TEST" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

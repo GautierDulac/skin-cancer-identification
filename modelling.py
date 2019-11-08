@@ -59,6 +59,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
                    zip(conv_features, labels)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
+
     return loaderfeat
 
 
@@ -81,10 +82,11 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         running_loss = 0.0
         running_corrects = 0
         for inputs, classes in dataloader:
-            print(inputs.size())
             inputs = inputs.to(device)
             classes = classes.to(device)
+            print(classes.size())
             outputs = model(inputs)
+            print(outputs.size())
             loss = criterion(outputs, classes)
             optimizer.zero_grad()
             loss.backward()
@@ -112,12 +114,11 @@ def validation_model(model, dataloader, size):
     model.eval()
     predictions = np.zeros(size)
     all_classes = np.zeros(size)
-    all_proba = np.zeros((size,2))
+    all_proba = np.zeros((size,1000))
     i = 0
     running_loss = 0.0
     running_corrects = 0
     for inputs, classes in dataloader:
-        print(inputs.size())
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
@@ -155,12 +156,15 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
+
+
+
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
-    train_model(model_vgg, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
+    train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
 
     #TODO: vérifier que dataloader (cf ipynb)
-    predictions, all_proba, all_classes = validation_model(model, dataloader=loaderfeat_valid, size=valid_size)
+    predictions, all_proba, all_classes = validation_model(model_vgg.classifier, dataloader=loaderfeat_valid, size=valid_size)
     return predictions, all_proba, all_classes
 
