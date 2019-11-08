@@ -59,6 +59,11 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
                    zip(conv_features, labels)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
+
+    for data in loaderfeat:
+        inputs, labels = data
+        print(inputs.shape)
+
     return loaderfeat
 
 
