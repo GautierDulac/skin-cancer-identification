@@ -155,6 +155,14 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
+
+    count = 1
+    for data in loader_valid:
+        print(count, end=',')
+        if count == 1:
+            inputs_try, labels_try = data
+        count += 1
+
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
