@@ -24,12 +24,11 @@ def imshow(inp, title=None, i=0):
     mean = np.array([0.485, 0.456, 0.406])
     std = np.array([0.229, 0.224, 0.225])
     inp = np.clip(std * inp + mean, 0, 1)
-    inp.savefig("test_fin.png")
     plt.imshow(inp)
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.savefig(str(i) + ".png")
+    plt.imsave(str(i) + ".png", inp)
 
 
 def final_visualisation(predictions, all_classes, dsets):
@@ -49,7 +48,6 @@ def final_visualisation(predictions, all_classes, dsets):
     i = 0
     for data in loader_correct:
         inputs_cor, labels_cor = data
-        print(inputs_cor)
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
         imshow(out, title=[l.item() for l in labels_cor], i=i)
