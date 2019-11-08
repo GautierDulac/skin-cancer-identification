@@ -21,6 +21,7 @@ batch_size_val=5
 batch_size_preconvfeat = 128
 shuffle_train=True
 shuffle_val=False
+
 num_workers=6
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -32,15 +33,24 @@ for param in model_applied.parameters():
     param.requires_grad = False
 
 if model_select == 1:
-
     model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
     model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim = 1)
+    model_applied = model_applied.to(device)
+    predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
+                                                                       shuffle_train, shuffle_val,
+                                                                       batch_size_preconvfeat, num_workers)
+    print(predictions)
+    final_visualisation(predictions, all_classes, prepare_dsets())
 
-model_applied = model_applied.to(device)
+
+elif model_select == 2:
+    num_ftrs = model_conv.fc.in_features
+    model_applied.fc = nn.Linear(num_ftrs, 2)
+    model_applied = model_applied.to(device)
+    criterion = nn.CrossEntropyLoss()
+    optimizer_applied = optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
+    exp_lr_scheduler = lr_scheduler.StepLR(optimizer_applied, step_size=7, gamma=0.1)
+    model_applied = train_model(model_applied, criterion, optimizer_conv,exp_lr_scheduler, num_epochs=25)
 
 
-predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers)
 
-print(predictions)
-
-final_visualisation(predictions, all_classes, prepare_dsets())

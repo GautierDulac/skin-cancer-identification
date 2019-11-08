@@ -29,7 +29,7 @@ def main_model():
 ###Core functions
 def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle):
     '''
-    Precomputes features extraction and creates a loader to extracted features.
+    Precomputes features extraction and creates a loader to extract features.
     
     :param dataloader: dataloader
     :param model: model from which we extract feature
