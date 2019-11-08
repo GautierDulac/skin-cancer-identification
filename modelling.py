@@ -88,8 +88,9 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         print('Loss: {:.4f} Acc: {:.4f}'.format(
             epoch_loss, epoch_acc))
 
-def multi_plots(epoch_loss_list):
-    plt.plot(epoch_loss_list)
+def multi_plots(loss_list, recall_list):
+    plt.plot(loss_list)
+    plt.plot(recall_list)
 
 def validation_model(model, dataloader, size):
     '''
