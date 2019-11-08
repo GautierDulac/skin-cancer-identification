@@ -17,7 +17,6 @@ num_workers=6
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
-
 ###Main function
 
 for param in model_vgg.parameters():
