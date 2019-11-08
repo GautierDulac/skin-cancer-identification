@@ -14,7 +14,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
-num_epochs = 50
+num_epochs = 20
 # Define a loss function
 criterion = nn.NLLLoss()
 # Define an optimizer function
