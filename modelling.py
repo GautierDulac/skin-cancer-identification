@@ -173,7 +173,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
-    train_model(model_vgg, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
+    train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
 
     #TODO: vérifier que dataloader (cf ipynb)
     predictions, all_proba, all_classes = validation_model(model, dataloader=loaderfeat_valid, size=valid_size)
