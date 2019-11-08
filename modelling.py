@@ -67,8 +67,8 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
     :return:
     '''
     model.train()
-    loss = []
-    acc = []
+    loss_list = []
+    acc_list = []
 
     for epoch in range(epochs):
         running_loss = 0.0
@@ -89,10 +89,10 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         epoch_acc = running_corrects.data.item() / size
         print('Loss: {:.4f} Acc: {:.4f}'.format(
             epoch_loss, epoch_acc))
-        loss.append(epoch_loss)
-        acc.append(epoch_acc)
-    plt.plot(loss)
-    plt.plot(acc)
+        loss_list.append(epoch_loss)
+        acc_list.append(epoch_acc)
+    plt.plot(loss_list)
+    plt.plot(acc_list)
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
