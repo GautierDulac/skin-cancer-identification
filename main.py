@@ -1,5 +1,7 @@
 ###Imports
 from modelling import validation_model_preconvfeat
+from visualizing import final_visualisation
+from preprocessing import prepare_dsets
 from torchvision import models
 import torch
 import torch.nn as nn
@@ -14,6 +16,8 @@ shuffle_val=False
 num_workers=6
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+
+
 ###Main function
 
 for param in model_vgg.parameters():
@@ -27,3 +31,5 @@ model_vgg = model_vgg.to(device)
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_vgg, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers)
 
 print(predictions)
+
+final_visualisation(predictions, all_classes, prepare_dsets)

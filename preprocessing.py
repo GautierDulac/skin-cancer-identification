@@ -25,16 +25,7 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
     :param num_workers: how many subprocesses to use for data loading
     :return: loaders for train and validation sets and size of train and validation sets
     '''
-    normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-
-    vgg_format = transforms.Compose([
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        normalize,
-    ])
-
-    dsets = {x: datasets.ImageFolder(os.path.join(data_dir, x), vgg_format)
-             for x in ['train', 'valid']}
+    dsets = prepare_dsets()
 
     dset_sizes = {x: len(dsets[x]) for x in ['train', 'valid']}
     train_size = dset_sizes['train']
@@ -48,4 +39,16 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
 #split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers=6)
 
 
+def prepare_dsets():
+    normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 
+    vgg_format = transforms.Compose([
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        normalize,
+    ])
+
+    dsets = {x: datasets.ImageFolder(os.path.join(data_dir, x), vgg_format)
+             for x in ['train', 'valid']}
+
+    return dsets
