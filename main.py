@@ -44,7 +44,7 @@ if model_select == 1:
 
 
 elif model_select == 2:
-    num_ftrs = model_conv.fc.in_features
+    num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
     model_applied = model_applied.to(device)
     criterion = nn.CrossEntropyLoss()
