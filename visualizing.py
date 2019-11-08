@@ -24,6 +24,7 @@ def imshow(inp, title=None, i=0):
     mean = np.array([0.485, 0.456, 0.406])
     std = np.array([0.229, 0.224, 0.225])
     inp = np.clip(std * inp + mean, 0, 1)
+    inp.savefig("test_fin.png")
     plt.imshow(inp)
     if title is not None:
         plt.title(title)
