@@ -13,15 +13,10 @@ fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
 num_epochs = 50
-
-# Define a neural network
-model_vgg = models.vgg16(pretrained=True)
-model_vgg = model_vgg.to(device)
 # Define a loss function
 criterion = nn.NLLLoss()
 # Define an optimizer function
 lr = 0.001
-optimizer_vgg = torch.optim.SGD(model_vgg.parameters(), lr=lr)
 
 
 ###Main function

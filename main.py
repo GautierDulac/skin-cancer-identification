@@ -17,6 +17,8 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 model_vgg = model_vgg.to(device)
 
+print(model_vgg.classifier)
+
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_vgg, batch_size_train, batch_size_val, shuffle_train, shuffle_val, batch_size_preconvfeat, num_workers)
 
 print(predictions)
