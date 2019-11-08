@@ -12,7 +12,7 @@ import torchvision
 
 
 ###Core functions
-def imshow(inp, title=None):
+def imshow(inp, title=None, i=0):
     """
 
     :param inp:
@@ -28,7 +28,7 @@ def imshow(inp, title=None):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.savefig(str(inp)+".png")
+    plt.savefig(str(i)+str(title)+".png")
     plt.show()
 
 
@@ -46,10 +46,12 @@ def final_visualisation(predictions, all_classes, dsets):
     from numpy.random import random, permutation
     idx = permutation(correct)[:n_view]
     loader_correct = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
+    i=0
     for data in loader_correct:
         inputs_cor, labels_cor = data
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
-        imshow(out, title=[l.item() for l in labels_cor])
+        imshow(out, title=[l.item() for l in labels_cor], i=i)
+        i+=1
     return ()
 
