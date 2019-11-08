@@ -103,6 +103,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
     plt.plot(loss_list)
     plt.plot(acc_list)
     plt.plot(recall_list)
+    plt.show()
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
