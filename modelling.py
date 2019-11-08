@@ -156,6 +156,16 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
 
+    for data in loader_train:
+        inputs, classes = data
+        print(inputs.size())
+        break
+
+    for data in loader_valid:
+        inputs, classes = data
+        print(inputs.size())
+        break
+
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
