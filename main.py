@@ -2,6 +2,7 @@
 from modelling import validation_model_preconvfeat
 from torchvision import models
 import torch
+import torch.nn as nn
 
 ###Constants
 model_vgg = models.vgg16(pretrained=True)
