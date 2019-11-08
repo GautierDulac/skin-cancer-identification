@@ -48,6 +48,7 @@ def final_visualisation(predictions, all_classes, dsets):
     i = 0
     for data in loader_correct:
         inputs_cor, labels_cor = data
+        print(inputs_cor)
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
         imshow(out, title=[l.item() for l in labels_cor], i=i)
