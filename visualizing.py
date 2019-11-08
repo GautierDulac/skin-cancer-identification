@@ -53,3 +53,20 @@ def final_visualisation(predictions, all_classes, dsets):
         imshow(out, title=[l.item() for l in labels_cor], i=i)
         i += 1
     return ()
+
+def training_visualisation():
+    fig, (ax1, ax2) = plt.subplots(2, sharex=True)
+    fig.suptitle('Training metrics')
+    plt.figure(figsize=(16, 6))
+
+    ax1.plot(acc_list, 'r--')
+    ax1.plot(recall_list, 'g--')
+    ax2.plot(loss_list, 'b-')
+
+    ax1.legend(['Accuracy', 'Recall'])
+    ax2.legend(['Loss'])
+    ax1.set_ylabel('Metric')
+    ax2.set_ylabel('Loss')
+    ax2.set_xlabel('Epoch')
+
+    plt.show()
