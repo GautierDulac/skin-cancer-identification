@@ -30,8 +30,11 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 for param in model_applied.parameters():
     param.requires_grad = False
-model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
-model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim = 1)
+
+if model_select == 1:
+
+    model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
+    model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim = 1)
 
 model_applied = model_applied.to(device)
 
