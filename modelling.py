@@ -7,7 +7,7 @@ import torch.nn as nn
 from torchvision import models
 from PIL import ImageFile
 from preprocessing import split_train_valid_sets
-from vizualizing import training_visualisation
+from visualizing import training_visualisation
 
 ###Constants
 ImageFile.LOAD_TRUNCATED_IMAGES = True
