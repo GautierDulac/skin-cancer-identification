@@ -84,7 +84,9 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         for inputs, classes in dataloader:
             inputs = inputs.to(device)
             classes = classes.to(device)
+            print(classes.size())
             outputs = model(inputs)
+            print(outputs.size())
             loss = criterion(outputs, classes)
             optimizer.zero_grad()
             loss.backward()

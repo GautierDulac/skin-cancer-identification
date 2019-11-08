@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="8020000" />
+      <workItem from="1573121467085" duration="8213000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -222,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573217607236</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="UPDATE - change size 2 to 1000 ? TEST">
+      <created>1573218117944</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218117944</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -254,7 +261,8 @@
     <MESSAGE value="UPDATE - test pipeline" />
     <MESSAGE value="UPDATE - debug" />
     <MESSAGE value="UPDATE - debug remove print" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - debug remove print" />
+    <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - change size 2 to 1000 ? TEST" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
