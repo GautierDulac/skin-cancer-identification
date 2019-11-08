@@ -163,6 +163,8 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
             inputs_try, labels_try = data
         count += 1
 
+    print(inputs_try.shape)
+
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 

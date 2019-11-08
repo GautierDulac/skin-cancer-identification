@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="6922000" />
+      <workItem from="1573121467085" duration="7037000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -173,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573216381178</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="UPDATE - debug">
+      <created>1573216614319</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1573216614319</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
