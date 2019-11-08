@@ -55,8 +55,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
         labels_list.extend(labels.data.cpu().numpy())
 
     conv_features = np.concatenate([[feat] for feat in conv_features])
-    datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
-                   zip(conv_features, labels)]
+    datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in zip(conv_features, labels)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
 
@@ -163,7 +162,8 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
-    train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs, optimizer=torch.optim.Adam(model_vgg.parameters(), lr=0.1))
+    train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs,
+                optimizer=torch.optim.Adam(model_vgg.classifier[6].parameters(), lr=0.001))
 
     #TODO: vérifier que dataloader (cf ipynb)
     predictions, all_proba, all_classes = validation_model(model_vgg.classifier, dataloader=loaderfeat_valid, size=valid_size)

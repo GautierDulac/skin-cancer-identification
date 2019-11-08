@@ -67,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="8508000" />
+      <workItem from="1573121467085" duration="10256000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -237,7 +237,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573218305166</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="UPDATE - TEST">
+      <created>1573218600283</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218600283</updated>
+    </task>
+    <task id="LOCAL-00026" summary="UPDATE - TEST put 2 back instead of 1000 for proba array">
+      <created>1573218684094</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218684094</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -271,7 +285,8 @@
     <MESSAGE value="UPDATE - debug remove print" />
     <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
     <MESSAGE value="UPDATE - TEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - TEST" />
+    <MESSAGE value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
