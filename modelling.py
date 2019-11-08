@@ -173,6 +173,9 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     :param num_workers: how many subprocesses to use for data loading
     :return: predictions, probabilities and classes for the validation set
     '''
+
+    print(model.classifier)
+
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
@@ -186,6 +189,8 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
         inputs, classes = data
         print(inputs.size())
         break
+
+    print(model.classifier)
 
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
