@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="11193000" />
+      <workItem from="1573121467085" duration="11975000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -271,7 +272,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573221361060</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="UPDATE - Debug on validation model function">
+      <created>1573221692769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221692769</updated>
+    </task>
+    <task id="LOCAL-00031" summary="UPDATE - Debug on validation model function - using criterion">
+      <created>1573221842999</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221842999</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -308,7 +323,9 @@
     <MESSAGE value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
     <MESSAGE value="UPDATE - Change optimizer" />
     <MESSAGE value="UPDATE - Remove prints" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Remove prints" />
+    <MESSAGE value="UPDATE - Debug on validation model function" />
+    <MESSAGE value="UPDATE - Debug on validation model function - using criterion" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Debug on validation model function - using criterion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
