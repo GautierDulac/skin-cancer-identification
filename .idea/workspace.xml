@@ -119,7 +119,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="8508000" />
+      <workItem from="1573121467085" duration="12763000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -289,7 +289,77 @@
       <option name="project" value="LOCAL" />
       <updated>1573218305166</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="UPDATE - TEST">
+      <created>1573218600283</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218600283</updated>
+    </task>
+    <task id="LOCAL-00026" summary="UPDATE - TEST put 2 back instead of 1000 for proba array">
+      <created>1573218684094</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1573218684094</updated>
+    </task>
+    <task id="LOCAL-00027" summary="UPDATE - Change optimizer">
+      <created>1573220677536</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1573220677536</updated>
+    </task>
+    <task id="LOCAL-00028" summary="UPDATE - Remove prints">
+      <created>1573221085503</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221085503</updated>
+    </task>
+    <task id="LOCAL-00029" summary="UPDATE - Remove prints">
+      <created>1573221361060</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221361060</updated>
+    </task>
+    <task id="LOCAL-00030" summary="UPDATE - Debug on validation model function">
+      <created>1573221692769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221692769</updated>
+    </task>
+    <task id="LOCAL-00031" summary="UPDATE - Debug on validation model function - using criterion">
+      <created>1573221842999</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1573221842999</updated>
+    </task>
+    <task id="LOCAL-00032" summary="UPDATE - Debug on preconvfeat loeaders">
+      <created>1573222410172</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1573222410172</updated>
+    </task>
+    <task id="LOCAL-00033" summary="UPDATE - Debug on preconvfeat loeaders">
+      <created>1573222547030</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1573222547030</updated>
+    </task>
+    <task id="LOCAL-00034" summary="UPDATE - Debug on preconvfeat loeaders">
+      <created>1573222889952</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1573222889952</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView">
@@ -369,7 +439,13 @@
     <MESSAGE value="UPDATE - debug remove print" />
     <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
     <MESSAGE value="UPDATE - TEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - TEST" />
+    <MESSAGE value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
+    <MESSAGE value="UPDATE - Change optimizer" />
+    <MESSAGE value="UPDATE - Remove prints" />
+    <MESSAGE value="UPDATE - Debug on validation model function" />
+    <MESSAGE value="UPDATE - Debug on validation model function - using criterion" />
+    <MESSAGE value="UPDATE - Debug on preconvfeat loeaders" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Debug on preconvfeat loeaders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
