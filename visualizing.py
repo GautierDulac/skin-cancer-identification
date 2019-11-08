@@ -28,7 +28,7 @@ def imshow(inp, title=None, i=0):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.imsave(str(i) + ".png")
+    plt.imsave(str(i)+ "-" + str(title) + ".png")
 
 
 def final_visualisation(predictions, all_classes, dsets):
