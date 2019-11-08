@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -356,7 +356,28 @@
       <option name="project" value="LOCAL" />
       <updated>1573225257253</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="UPDATE - running positives">
+      <created>1573225403512</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1573225403512</updated>
+    </task>
+    <task id="LOCAL-00043" summary="ADD - visualisation">
+      <created>1573226368861</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1573226368861</updated>
+    </task>
+    <task id="LOCAL-00044" summary="UPDATE - Lower nb of epochs">
+      <created>1573226512467</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1573226512467</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -419,7 +440,9 @@
     <MESSAGE value="UPDATE - Add torch.nn" />
     <MESSAGE value="UPDATE - Remove all prints now it's working" />
     <MESSAGE value="UPDATE - running positives" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - running positives" />
+    <MESSAGE value="ADD - visualisation" />
+    <MESSAGE value="UPDATE - Lower nb of epochs" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Lower nb of epochs" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

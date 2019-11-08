@@ -51,28 +51,3 @@ def final_visualisation(predictions, all_classes, dsets):
         imshow(out, title=[l.item() for l in labels_cor])
     return ()
 
-
-# Make a grid from batch
-out = torchvision.utils.make_grid(inputs_try)
-
-imshow(out, title=[dset_classes[x] for x in labels_try])
-
-# Get a batch of training data
-inputs, classes = next(iter(loader_train))
-
-n_images = 8
-
-# Make a grid from batch
-out = torchvision.utils.make_grid(inputs[0:n_images])
-
-imshow(out, title=[dset_classes[x] for x in classes[0:n_images]])
-
-# Get a batch of validation data
-inputs, classes = next(iter(loader_valid))
-
-n_images = 8
-
-# Make a grid from batch
-out = torchvision.utils.make_grid(inputs[0:n_images])
-
-imshow(out, title=[dset_classes[x] for x in classes[0:n_images]])
