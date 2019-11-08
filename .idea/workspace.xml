@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="ADD - plt.show">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizing.py" afterDir="false" />
     </list>
@@ -68,13 +68,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
-      <created>1573122016464</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1573122016464</updated>
     </task>
     <task id="LOCAL-00002" summary="Add to device in the model part for cuda">
       <created>1573123119933</created>
@@ -391,7 +384,35 @@
       <option name="project" value="LOCAL" />
       <updated>1573226842695</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="ADD - plt.show">
+      <created>1573226963946</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1573226963946</updated>
+    </task>
+    <task id="LOCAL-00048" summary="ADD - plt.savefig">
+      <created>1573227595695</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1573227595695</updated>
+    </task>
+    <task id="LOCAL-00049" summary="ADD - plt.savefig name">
+      <created>1573227813058</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1573227813058</updated>
+    </task>
+    <task id="LOCAL-00050" summary="ADD - plt.savefig">
+      <created>1573228065962</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1573228065963</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
@@ -434,7 +455,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add to device in the model part for cuda" />
     <MESSAGE value="Correct typo" />
     <MESSAGE value="UPDATE - test pipeline" />
     <MESSAGE value="UPDATE - debug remove print" />
@@ -457,7 +477,10 @@
     <MESSAGE value="UPDATE - Lower nb of epochs" />
     <MESSAGE value="UPDATE - remove code unused" />
     <MESSAGE value="UPDATE - debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - debug" />
+    <MESSAGE value="ADD - plt.show" />
+    <MESSAGE value="ADD - plt.savefig name" />
+    <MESSAGE value="ADD - plt.savefig" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD - plt.savefig" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
