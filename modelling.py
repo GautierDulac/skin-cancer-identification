@@ -128,9 +128,7 @@ def validation_model(model, dataloader, size):
         outputs = model(inputs)
         print("outputs :")
         print(outputs.size())
-        #Test avec nn.NLLLoss directement
-        loss = nn.NLLLoss(outputs,classes)
-        #loss = criterion(outputs,classes)
+        loss = criterion(outputs,classes)
         _,preds = torch.max(outputs.data,1)
             # statistics
         running_loss += loss.data.item()
