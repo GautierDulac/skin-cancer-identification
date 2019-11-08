@@ -21,7 +21,7 @@ model_vgg = model_vgg.to(device)
 criterion = nn.NLLLoss()
 # Define an optimizer function
 lr = 0.001
-optimizer_vgg = torch.optim.SGD(model_vgg.classifier[6].parameters(), lr=lr)
+optimizer_vgg = torch.optim.SGD(model_vgg.parameters(), lr=lr)
 
 
 ###Main function
@@ -180,10 +180,14 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
         print(inputs.size())
         break
 
-    train_model(model_vgg.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs,
-                optimizer=torch.optim.Adam(model_vgg.classifier[6].parameters(), lr=0.001))
+    print(model.classifier)
+
+    train_model(model.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs,
+                optimizer=torch.optim.Adam(model.classifier.parameters(), lr=0.001))
+
+    print(model.classifier)
 
     # TODO: vérifier que dataloader (cf ipynb)
-    predictions, all_proba, all_classes = validation_model(model_vgg.classifier, dataloader=loaderfeat_valid,
+    predictions, all_proba, all_classes = validation_model(model.classifier, dataloader=loaderfeat_valid,
                                                            size=valid_size)
     return predictions, all_proba, all_classes
