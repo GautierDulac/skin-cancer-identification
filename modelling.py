@@ -132,7 +132,6 @@ def validation_model(model, dataloader, size):
         # statistics
         running_loss += loss.data.item()
         running_corrects += torch.sum(preds == classes.data)
-<<<<<<< HEAD
         running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
         running_positives += torch.sum(classes.data == 1)
         predictions[i:i+len(classes)] = preds.to('cpu').numpy()
@@ -146,16 +145,6 @@ def validation_model(model, dataloader, size):
     epoch_recall = running_true_positives / running_positives
     print('Loss: {:.4f} Acc: {:.4f} Recall: {:.4f'.format(
                      epoch_loss, epoch_acc, epoch_recall))
-=======
-        predictions[i:i + len(classes)] = preds.to('cpu').numpy()
-        all_classes[i:i + len(classes)] = classes.to('cpu').numpy()
-        all_proba[i:i + len(classes), :] = outputs.data.to('cpu').numpy()
-        i += len(classes)
-    epoch_loss = running_loss / size
-    epoch_acc = running_corrects.data.item() / size
-    print('Loss: {:.4f} Acc: {:.4f}'.format(
-        epoch_loss, epoch_acc))
->>>>>>> 0496c007c0cc27967f4ed88d95bc11e422f2c596
     return predictions, all_proba, all_classes
 
 
