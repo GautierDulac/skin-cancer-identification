@@ -101,6 +101,8 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         print('Loss: {:.4f} Acc: {:.4f}'.format(
             epoch_loss, epoch_acc))
 
+def multi_plots(epoch_loss_list):
+    plt.plot(epoch_loss_list)
 
 
 def validation_model(model, dataloader, size):
@@ -119,6 +121,8 @@ def validation_model(model, dataloader, size):
     i = 0
     running_loss = 0.0
     running_corrects = 0
+    running_true_positives = 0
+    running_positives = 0
     for inputs, classes in dataloader:
         inputs = inputs.to(device)
         classes = classes.to(device)
@@ -128,6 +132,8 @@ def validation_model(model, dataloader, size):
             # statistics
         running_loss += loss.data.item()
         running_corrects += torch.sum(preds == classes.data)
+        running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
+        running_positives += torch.sum(classes.data == 1)
         predictions[i:i+len(classes)] = preds.to('cpu').numpy()
         all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
         print(len(outputs.data.to('cpu').numpy()))
@@ -136,8 +142,9 @@ def validation_model(model, dataloader, size):
         i += len(classes)
     epoch_loss = running_loss / size
     epoch_acc = running_corrects.data.item() / size
-    print('Loss: {:.4f} Acc: {:.4f}'.format(
-                     epoch_loss, epoch_acc))
+    epoch_recall = running_true_positives / running_positives
+    print('Loss: {:.4f} Acc: {:.4f} Recall: {:.4f'.format(
+                     epoch_loss, epoch_acc, epoch_recall))
     return predictions, all_proba, all_classes
 
 
