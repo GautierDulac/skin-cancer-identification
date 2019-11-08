@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
-    </list>
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573223932074</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="UPDATE - Henri's push">
+      <created>1573224052277</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1573224052277</updated>
+    </task>
+    <task id="LOCAL-00037" summary="UPDATE - Remove unused constants">
+      <created>1573224188206</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1573224188206</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -376,18 +388,9 @@
     <MESSAGE value="UPDATE - Debug on validation model function - using criterion" />
     <MESSAGE value="UPDATE - Debug on preconvfeat loeaders" />
     <MESSAGE value="ADD - Python interpreter" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD - Python interpreter" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/modelling.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="UPDATE - Henri's push" />
+    <MESSAGE value="UPDATE - Remove unused constants" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Remove unused constants" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

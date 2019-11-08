@@ -15,6 +15,11 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 ###Main function
 
+for param in model_vgg.parameters():
+    param.requires_grad = False
+model_vgg.classifier._modules['6'] = nn.Linear(4096, 2)
+model_vgg.classifier._modules['7'] = torch.nn.LogSoftmax(dim = 1)
+
 model_vgg = model_vgg.to(device)
 
 print(model_vgg.classifier)
