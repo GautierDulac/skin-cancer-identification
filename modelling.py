@@ -139,6 +139,8 @@ def validation_model(model, dataloader, size):
     epoch_loss = running_loss / size
     epoch_acc = running_corrects.data.item() / size
     epoch_recall = running_true_positives / running_positives
+    print(running_true_positives)
+    print(running_positives)
     print('Loss: {:.4f} Acc: {:.4f} Recall: {:.4f}'.format(
                      epoch_loss, epoch_acc, epoch_recall))
     return predictions, all_proba, all_classes
