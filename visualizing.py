@@ -28,7 +28,7 @@ def imshow(inp, title=None, i=0):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.imsave("Corrects-" + str(i)+ "-" + str(title) + ".png", inp)
+    plt.imsave("Corrects-" + str(i) + "-" + str(title) + ".png", inp)
 
 
 def final_visualisation(predictions, all_classes, dsets):
@@ -53,6 +53,7 @@ def final_visualisation(predictions, all_classes, dsets):
         imshow(out, title=[l.item() for l in labels_cor], i=i)
         i += 1
     return ()
+
 
 def training_visualisation(loss_list, acc_list, recall_list):
     """
