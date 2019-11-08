@@ -63,7 +63,7 @@ def training_visualisation(loss_list, acc_list, recall_list):
     """
     fig, (ax1, ax2) = plt.subplots(2, sharex=True)
     fig.suptitle('Training metrics')
-    fig.figure(figsize=(16, 6))
+    #fig.figure(figsize=(16, 6))
 
     ax1.plot(acc_list, 'r--')
     ax1.plot(recall_list, 'g--')
