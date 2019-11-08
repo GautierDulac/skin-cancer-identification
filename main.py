@@ -32,4 +32,4 @@ predictions, all_proba, all_classes = validation_model_preconvfeat(model_vgg, ba
 
 print(predictions)
 
-final_visualisation(predictions, all_classes, prepare_dsets)
+final_visualisation(predictions, all_classes, prepare_dsets())
