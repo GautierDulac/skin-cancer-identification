@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
-    </list>
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
-      <workItem from="1573121467085" duration="10256000" />
+      <workItem from="1573121467085" duration="10555000" />
     </task>
     <task id="LOCAL-00001" summary="Add to device in the model part for cuda">
       <created>1573122016464</created>
@@ -251,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573218684094</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="UPDATE - Change optimizer">
+      <created>1573220677536</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1573220677536</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -286,7 +290,8 @@
     <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
     <MESSAGE value="UPDATE - TEST" />
     <MESSAGE value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
+    <MESSAGE value="UPDATE - Change optimizer" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Change optimizer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

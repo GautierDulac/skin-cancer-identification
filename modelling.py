@@ -81,12 +81,9 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         running_loss = 0.0
         running_corrects = 0
         for inputs, classes in dataloader:
-            print(inputs.size())
             inputs = inputs.to(device)
             classes = classes.to(device)
-            print(classes.size())
             outputs = model(inputs)
-            print(outputs.size())
             loss = criterion(outputs, classes)
             optimizer.zero_grad()
             loss.backward()
@@ -129,8 +126,6 @@ def validation_model(model, dataloader, size):
         running_corrects += torch.sum(preds == classes.data)
         predictions[i:i+len(classes)] = preds.to('cpu').numpy()
         all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
-        print(len(outputs.data.to('cpu').numpy()))
-        print(len(outputs.data.to('cpu').numpy()[0]))
         all_proba[i:i+len(classes), :] = outputs.data.to('cpu').numpy()
         i += len(classes)
     epoch_loss = running_loss / size
