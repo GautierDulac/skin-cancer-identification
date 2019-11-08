@@ -109,6 +109,9 @@ def validation_model(model, dataloader, size):
     :return: predictions, probabilities and classes for the validation set
     '''
     model.eval()
+    print("Model :")
+    print(model)
+
     predictions = np.zeros(size)
     all_classes = np.zeros(size)
     all_proba = np.zeros((size,2))
@@ -116,10 +119,18 @@ def validation_model(model, dataloader, size):
     running_loss = 0.0
     running_corrects = 0
     for inputs, classes in dataloader:
+        print("inputs :")
+        print(inputs.size())
+        print("classes :")
+        print(classes.size())
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
-        loss = criterion(outputs,classes)
+        print("outputs :")
+        print(outputs.size())
+        #Test avec nn.NLLLoss directement
+        loss = nn.NLLLoss(outputs,classes)
+        #loss = criterion(outputs,classes)
         _,preds = torch.max(outputs.data,1)
             # statistics
         running_loss += loss.data.item()
