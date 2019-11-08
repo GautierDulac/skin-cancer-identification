@@ -54,7 +54,7 @@ def final_visualisation(predictions, all_classes, dsets):
         i += 1
     return ()
 
-def training_visualisation():
+def training_visualisation(acc_list, recall_list, loss_list):
     fig, (ax1, ax2) = plt.subplots(2, sharex=True)
     fig.suptitle('Training metrics')
     plt.figure(figsize=(16, 6))
