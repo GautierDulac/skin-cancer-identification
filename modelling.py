@@ -118,7 +118,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
-    plt.savefig("test.png")
+    fig.savefig("training_metrics.png")
     plt.show()
 
 def multi_plots(loss_list, recall_list):
