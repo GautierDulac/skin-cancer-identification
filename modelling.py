@@ -60,10 +60,6 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
 
-    for data in loaderfeat:
-        inputs, labels = data
-        print(inputs.shape)
-
     return loaderfeat
 
 
@@ -86,7 +82,6 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         running_loss = 0.0
         running_corrects = 0
         for inputs, classes in dataloader:
-            print(inputs.size())
             inputs = inputs.to(device)
             classes = classes.to(device)
             outputs = model(inputs)
@@ -122,7 +117,6 @@ def validation_model(model, dataloader, size):
     running_loss = 0.0
     running_corrects = 0
     for inputs, classes in dataloader:
-        print(inputs.size())
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
@@ -161,14 +155,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
 
-    count = 1
-    for data in loader_valid:
-        print(count, end=',')
-        if count == 1:
-            inputs_try, labels_try = data
-        count += 1
 
-    print(inputs_try.shape)
 
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
