@@ -3,6 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 import torchvision
+from numpy.random import permutation
+from torchviz import make_dot
+import cv2
+from torch.nn import functional as F
 
 
 ###Constants
@@ -42,7 +46,6 @@ def final_visualisation(predictions, all_classes, dsets):
     # Number of images to view for each visualization task
     n_view = 8
     correct = np.where(predictions == all_classes)[0]
-    from numpy.random import random, permutation
     idx = permutation(correct)[:n_view]
     loader_correct = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
     i = 0
@@ -54,9 +57,105 @@ def final_visualisation(predictions, all_classes, dsets):
         i += 1
     return ()
 
-def activation_map():
 
-    return()
+def activation_map(resnet_model, predictions, all_classes, dsets):
+    """
+
+    :param predictions:
+    :param all_classes:
+    :param dsets:
+    :return:
+    """
+    # Number of images to view for each visualization task
+    n_view = 1
+    correct = np.where(predictions == all_classes)[0]
+    idx = permutation(correct)[:n_view]
+    loader_correct = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
+    i = 0
+
+    # Activation map part
+    finalconv_name = 'layer4'
+    resnet_model.eval()
+
+    # hook the feature extractor
+    # see https://pytorch.org/tutorials/beginner/former_torchies/nn_tutorial.html
+    # for more explanations
+    features_blobs = []
+
+    def hook_feature(module, input, output):
+        print('Inside ' + module.__class__.__name__ + ' forward')
+        print('')
+        print('input: ', type(input))
+        print('input[0]: ', type(input[0]))
+        print('output: ', type(output))
+        print('')
+        print('input size:', input[0].size())
+        print('output size:', output.data.size())
+        features_blobs.append(output.data.cpu().numpy())
+
+    resnet_model._modules.get(finalconv_name).register_forward_hook(hook_feature)
+
+    # get the softmax weight
+    params = list(resnet_model.parameters())
+    weight_softmax = np.squeeze(params[-2].data.numpy())
+
+    def returnCAM(feature_conv, weight_softmax, class_idx):
+        # generate the class activation maps upsample to 256x256
+        size_upsample = (256, 256)
+        bz, nc, h, w = feature_conv.shape
+        output_cam = []
+        for idx in class_idx:
+            cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h * w)))
+            cam = cam.reshape(h, w)
+            cam = cam - np.min(cam)
+            cam_img = cam / np.max(cam)
+            cam_img = np.uint8(255 * cam_img)
+            output_cam.append(cv2.resize(cam_img, size_upsample))
+        return output_cam
+
+    classes = {0: "benign", 1: "malignant"}
+
+    for data in loader_correct:
+        input, = data
+
+    print("Shape input")
+    print(input.shape)
+
+    input = input[0]
+
+    logit = resnet_model(input)
+    h_x = F.softmax(logit, dim=1).data.squeeze()
+    probs, idx = h_x.sort(0, True)
+    probs = probs.numpy()
+    idx = idx.numpy()
+
+    # output the prediction
+    for i in range(0, 2):
+        print('{:.3f} -> {}'.format(probs[i], classes[idx[i]]))
+
+    # generate class activation mapping for the top1 prediction
+    CAMs = returnCAM(features_blobs[0], weight_softmax, [idx[0]])
+
+    # render the CAM and output
+    print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
+    img = input
+    height, width, _ = img.shape
+    heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
+    result = heatmap * 0.3 + img * 0.5
+    cv2.imwrite('CAM_True_' + classes[idx[i]] + '.jpg', result)
+
+    # generate class activation mapping for the top2 prediction
+    CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[2]])
+
+    # render the CAM and output
+    print('output CAM.jpg for the top2 prediction: %s' % classes[idx[2]])
+    img = input
+    height, width, _ = img.shape
+    heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
+    result = heatmap * 0.3 + img * 0.5
+    cv2.imwrite('CAM_False_' + classes[idx[i]] + '.jpg', result)
+    return ()
+
 
 def training_visualisation(loss_list, acc_list, recall_list):
     """
