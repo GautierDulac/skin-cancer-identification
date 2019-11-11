@@ -17,7 +17,7 @@ fpath = 'data/imagenet_class_index.json'
 batch_size_preconvfeat = 128
 num_epochs = 100
 # Define a loss function
-criterion = nn.NLLLoss()
+# in the main not a constant
 # Define an optimizer function
 lr = 0.01
 
@@ -30,7 +30,7 @@ def main_model():
 ###Core functions
 def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle):
     '''
-    Precomputes features extraction and creates a loader to extracted features.
+    Precomputes features extraction and creates a loader to extract features.
     
     :param dataloader: dataloader
     :param model: model from which we extract feature
@@ -56,6 +56,8 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
 
     return loaderfeat
+
+
 
 
 def train_model(model, dataloader, size, epochs=1, optimizer=None):
@@ -150,7 +152,7 @@ def validation_model(model, dataloader, size):
 
 
 def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
-                                 batch_size_preconvfeat, num_workers):
+                                 batch_size_preconvfeat, num_workers, optim = torch.optim.Adam(model.classifier.parameters())):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -168,13 +170,15 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
-
+    '''
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+    '''
 
-    train_model(model.classifier, dataloader=loaderfeat_train, size=train_size, epochs=num_epochs,
-                optimizer=torch.optim.Adam(model.classifier.parameters(), lr=lr))
+    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim)
 
-    predictions, all_proba, all_classes = validation_model(model.classifier, dataloader=loaderfeat_valid,
-                                                           size=valid_size)
+
+    predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size)
+
+
     return predictions, all_proba, all_classes
