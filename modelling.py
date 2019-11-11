@@ -7,6 +7,7 @@ import torch.nn as nn
 from torchvision import models
 from PIL import ImageFile
 from preprocessing import split_train_valid_sets
+from visualizing import training_visualisation
 
 ###Constants
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -14,11 +15,11 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
-num_epochs = 20
+num_epochs = 100
 # Define a loss function
 # in the main not a constant
 # Define an optimizer function
-lr = 0.001
+lr = 0.01
 
 
 ###Main function
@@ -102,13 +103,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None):
         loss_list.append(epoch_loss)
         acc_list.append(epoch_acc)
         recall_list.append(epoch_recall)
-    print(loss_list)
-    print(acc_list)
-    print(recall_list)
-    plt.plot(loss_list)
-    plt.plot(acc_list)
-    plt.plot(recall_list)
-    plt.show()
+    training_visualisation(loss_list, acc_list, recall_list)
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
@@ -182,6 +177,8 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim)
 
+
     predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size)
+
 
     return predictions, all_proba, all_classes

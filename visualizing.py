@@ -28,7 +28,7 @@ def imshow(inp, title=None, i=0):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.savefig(str(i) + ".png")
+    plt.imsave("Corrects-" + str(i) + "-" + str(title) + ".png", inp)
 
 
 def final_visualisation(predictions, all_classes, dsets):
@@ -54,7 +54,14 @@ def final_visualisation(predictions, all_classes, dsets):
         i += 1
     return ()
 
-def training_visualisation():
+
+def training_visualisation(loss_list, acc_list, recall_list):
+    """
+    :param loss_list: list of epoch loss
+    :param acc_list: list of epoch accuracy
+    :param recall_list: list of epoch recall
+    :return: 2 subplots representing the variation throughout training
+    """
     fig, (ax1, ax2) = plt.subplots(2, sharex=True)
     fig.suptitle('Training metrics')
     plt.figure(figsize=(16, 6))
@@ -69,4 +76,5 @@ def training_visualisation():
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
+    fig.savefig("training_metrics.png")
     plt.show()
