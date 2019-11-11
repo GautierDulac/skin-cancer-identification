@@ -73,7 +73,8 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     :return:
     """
 
-    IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
+    #IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
+    IMG_URL = 'data/malignant/2.jpg'
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -125,9 +126,9 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
         normalize
     ])
 
-    response = requests.get(IMG_URL)
-    print(response.content)
-    img_pil = Image.open(io.BytesIO(response.content))
+    #response = requests.get(IMG_URL)
+    #print(response.content)
+    img_pil = Image.open(IMG_URL)
     img_pil.save('test.jpg')
 
     img_tensor = preprocess(img_pil)
