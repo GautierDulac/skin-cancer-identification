@@ -116,7 +116,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
     classes = {0: "benign", 1: "malignant"}
 
     for data in loader_correct:
-        input_cor, = data
+        input_cor = data
 
     print("Shape input")
     print(input_cor.shape)
