@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Nov 11 16:11:28 2019
+
+@author: Ben
+"""
+
 ###Imports
 from modelling import validation_model_preconvfeat
 from visualizing import final_visualisation, activation_map
@@ -6,6 +13,7 @@ from torchvision import models
 import torch.optim as optim
 import torch
 import torch.nn as nn
+
 
 ###Constants
 model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet\n"))
@@ -43,14 +51,27 @@ elif model_select == 2:
     optimizer = optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
 
-else:
+elif model_select == 3:
     model_applied.classifier._modules['1'] = nn.Linear(1280, 2)
     model_applied.classifier._modules['2'] = torch.nn.LogSoftmax(dim=1)
     optimizer = torch.optim.Adam(model_applied.classifier.parameters())
     criterion = nn.NLLLoss()
+    
+elif model_select == 4:
+    from model_small_cancerid import classifier
+    from model_small_cancerid import validation_model_preconvfeat
+    classif = classifier()
+    model_applied = classif.cuda()
+    optimizer = torch.optim.Adam(model_applied.parameters(), lr = 0.001)
+    
+    
 
 model_applied = model_applied.to(device)
-predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
+if model_select == 4:
+    predictions, all_proba, all_classes = model_small_cancerid.validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
+                                                                   shuffle_train, shuffle_val, num_workers, optimizer)
+else:
+    predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
                                                                    shuffle_train, shuffle_val, num_workers, optimizer, criterion)
 
 print(predictions)
