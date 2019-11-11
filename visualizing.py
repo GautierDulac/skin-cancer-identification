@@ -140,7 +140,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     h_x = F.softmax(logit, dim=1).data.squeeze()
     probs, idx = h_x.sort(0, True)
     probs = probs.to('cpu').numpy()
-    idx = idx.to('cpu').numpy()
+    idx = idx.to('cpu').data.numpy()
 
     # output the prediction
     for i in range(0, 2):
