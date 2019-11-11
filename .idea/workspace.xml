@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="UPDATE - Debug">
-      <change beforePath="$PROJECT_DIR$/.idea/skin-cancer-identification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/skin-cancer-identification.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,13 +72,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00022" summary="UPDATE - debug remove print">
-      <created>1573217607236</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1573217607236</updated>
     </task>
     <task id="LOCAL-00023" summary="UPDATE - change size 2 to 1000 ? TEST">
       <created>1573218117944</created>
@@ -418,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573482399926</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="UPDATE - Debug vizu">
+      <created>1573482821554</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1573482821554</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView">
@@ -484,10 +482,10 @@
     <MESSAGE value="UPDATE - 5 epochs for debug purpose" />
     <MESSAGE value="UPDATE - Debug visu test" />
     <MESSAGE value="ADD - retour à la ligne input" />
-    <MESSAGE value="UPDATE - Debug vizu" />
     <MESSAGE value="UPDATE - Test another approach for visu ACM" />
     <MESSAGE value="UPDATE - Debug visu" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Debug visu" />
+    <MESSAGE value="UPDATE - Debug vizu" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Debug vizu" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
