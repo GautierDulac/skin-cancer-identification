@@ -14,7 +14,7 @@ if model_select == 1:
 elif model_select == 2:
     model_applied = models.resnet18(pretrained=True)
 else:
-    model_applied = models.mobilenet(pretrained=True)
+    model_applied = models.mobilenet_v2(pretrained=True)
 
 
 batch_size_train=64
@@ -32,15 +32,14 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 for param in model_applied.parameters():
     param.requires_grad = False
 
-if model_select == 1:
-    model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
-
-else:
+if model_select == 2:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
     optimizer = torch.optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
 
+else:
+    model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
 
 
 model_applied = model_applied.to(device)
