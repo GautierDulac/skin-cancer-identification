@@ -73,7 +73,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     :return:
     """
 
-    IMG_URL = 'https://drive.google.com/open?id=1CQkp6oCHAGmVnSDRL1mm1Aw9Ly4ONndc'
+    IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
 
     # Activation map part
     finalconv_name = 'layer4'

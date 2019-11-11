@@ -73,20 +73,6 @@
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
     </task>
-    <task id="LOCAL-00023" summary="UPDATE - change size 2 to 1000 ? TEST">
-      <created>1573218117944</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1573218117944</updated>
-    </task>
-    <task id="LOCAL-00024" summary="UPDATE - TEST">
-      <created>1573218305166</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1573218305166</updated>
-    </task>
     <task id="LOCAL-00025" summary="UPDATE - TEST">
       <created>1573218600283</created>
       <option name="number" value="00025" />
@@ -416,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573482821554</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="UPDATE - Debug vizu">
+      <created>1573483133880</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1573483133880</updated>
+    </task>
+    <task id="LOCAL-00073" summary="UPDATE - Debug vizu">
+      <created>1573483295165</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1573483295165</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TodoView">
