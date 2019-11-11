@@ -129,7 +129,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     #response = requests.get(IMG_URL)
     #print(response.content)
     img_pil = Image.open(IMG_URL)
-    img_pil.save('test.jpg')
+    img_pil.save('test_'+IMG_URL+'.jpg')
 
     img_tensor = preprocess(img_pil)
     img_variable = Variable(img_tensor.unsqueeze(0)).to(device)
@@ -151,7 +151,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
 
     # render the CAM and output
     print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
-    img = cv2.imread('test.jpg')
+    img = cv2.imread('test_'+IMG_URL+'.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
@@ -162,7 +162,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
 
     # render the CAM and output
     print('output CAM.jpg for the top2 prediction: %s' % classes[idx[1]])
-    img = cv2.imread('test.jpg')
+    img = cv2.imread('test_'+IMG_URL+'.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
