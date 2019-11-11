@@ -14,7 +14,7 @@ if model_select == 1:
 elif model_select == 2:
     model_applied = models.resnet18(pretrained=True)
 else:
-    model_applied = models.mobilenet(pretrained=True)
+    model_applied = models.mobilenet_v2(pretrained=True)
 
 batch_size_train = 64
 batch_size_val = 5
