@@ -73,20 +73,6 @@
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
     </task>
-    <task id="LOCAL-00026" summary="UPDATE - TEST put 2 back instead of 1000 for proba array">
-      <created>1573218684094</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1573218684094</updated>
-    </task>
-    <task id="LOCAL-00027" summary="UPDATE - Change optimizer">
-      <created>1573220677536</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1573220677536</updated>
-    </task>
     <task id="LOCAL-00028" summary="UPDATE - Remove prints">
       <created>1573221085503</created>
       <option name="number" value="00028" />
@@ -416,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573483527967</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="UPDATE - Debug vizu">
+      <created>1573483855042</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1573483855042</updated>
+    </task>
+    <task id="LOCAL-00076" summary="UPDATE - Debug vizu">
+      <created>1573484008207</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1573484008207</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView">

@@ -16,7 +16,7 @@ import pdb
 from matplotlib.pyplot import imshow
 
 ###Constants
-
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 ###Main function
 
@@ -132,7 +132,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     img_pil.save('test.jpg')
 
     img_tensor = preprocess(img_pil)
-    img_variable = Variable(img_tensor.unsqueeze(0))
+    img_variable = Variable(img_tensor.unsqueeze(0)).to(device)
     logit = resnet_model(img_variable)
 
     classes = {0: "benign", 1: "malignant"}
