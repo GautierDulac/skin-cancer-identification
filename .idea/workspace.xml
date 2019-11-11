@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
-    </list>
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,20 +70,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00032" summary="UPDATE - Debug on preconvfeat loeaders">
-      <created>1573222410172</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1573222410172</updated>
-    </task>
-    <task id="LOCAL-00033" summary="UPDATE - Debug on preconvfeat loeaders">
-      <created>1573222547030</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1573222547030</updated>
     </task>
     <task id="LOCAL-00034" summary="UPDATE - Debug on preconvfeat loeaders">
       <created>1573222889952</created>
@@ -417,7 +400,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573497357250</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="UPDATE - Correction Visu">
+      <created>1573498470760</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1573498470760</updated>
+    </task>
+    <task id="LOCAL-00082" summary="UPDATE - Correction Visu">
+      <created>1573498527733</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1573498527733</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TodoView">

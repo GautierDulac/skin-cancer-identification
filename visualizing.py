@@ -75,6 +75,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
 
     #IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
     IMG_URL = 'data/train/malignant/2.jpg'
+    TEST_SAVE = 'malignant_2'
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -129,7 +130,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     #response = requests.get(IMG_URL)
     #print(response.content)
     img_pil = Image.open(IMG_URL)
-    img_pil.save('test_'+IMG_URL+'.jpg')
+    img_pil.save('test_'+TEST_SAVE+'.jpg')
 
     img_tensor = preprocess(img_pil)
     img_variable = Variable(img_tensor.unsqueeze(0)).to(device)
@@ -151,22 +152,22 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
 
     # render the CAM and output
     print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
-    img = cv2.imread('test_'+IMG_URL+'.jpg')
+    img = cv2.imread('test_'+TEST_SAVE+'.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_True_' + classes[idx[0]] + '_Image_' + IMG_URL + '.jpg', result)
+    cv2.imwrite('CAM_True_' + classes[idx[0]] + '_Image_' + TEST_SAVE + '.jpg', result)
 
     # generate class activation mapping for the top2 prediction
     CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[1]])
 
     # render the CAM and output
     print('output CAM.jpg for the top2 prediction: %s' % classes[idx[1]])
-    img = cv2.imread('test_'+IMG_URL+'.jpg')
+    img = cv2.imread('test_'+TEST_SAVE+'.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_False_' + classes[idx[1]] + '_Image_' + IMG_URL + '.jpg', result)
+    cv2.imwrite('CAM_False_' + classes[idx[1]] + '_Image_' + TEST_SAVE + '.jpg', result)
     return ()
 
 
