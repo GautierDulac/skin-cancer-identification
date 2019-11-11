@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="merge models">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
-    </list>
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,20 +70,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00003" summary="Add to device in the model part for cuda">
-      <created>1573123210666</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1573123210666</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Correct typo">
-      <created>1573123450654</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1573123450654</updated>
     </task>
     <task id="LOCAL-00005" summary="UPDATE - debug">
       <created>1573123578575</created>
@@ -418,7 +400,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573233688749</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="merge models">
+      <created>1573465403027</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1573465403027</updated>
+    </task>
+    <task id="LOCAL-00053" summary="debug models">
+      <created>1573465458315</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1573465458315</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -462,7 +458,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UPDATE - test pipeline" />
     <MESSAGE value="UPDATE - debug remove print" />
     <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
     <MESSAGE value="UPDATE - TEST" />
@@ -487,18 +482,8 @@
     <MESSAGE value="new code ver" />
     <MESSAGE value="debug" />
     <MESSAGE value="merge models" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge models" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>1</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="debug models" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug models" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
