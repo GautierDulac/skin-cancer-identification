@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizing.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +72,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00035" summary="ADD - Python interpreter">
-      <created>1573223932074</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1573223932074</updated>
     </task>
     <task id="LOCAL-00036" summary="UPDATE - Henri's push">
       <created>1573224052277</created>
@@ -414,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573498763125</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="UPDATE - Change image">
+      <created>1573499408069</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1573499408069</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TodoView">
@@ -458,7 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="ADD - visualisation" />
     <MESSAGE value="UPDATE - Lower nb of epochs" />
     <MESSAGE value="UPDATE - remove code unused" />
     <MESSAGE value="UPDATE - debug" />
@@ -483,7 +484,8 @@
     <MESSAGE value="UPDATE - Debug visu" />
     <MESSAGE value="UPDATE - Debug vizu" />
     <MESSAGE value="UPDATE - Correction Visu" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Correction Visu" />
+    <MESSAGE value="UPDATE - Change image" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Change image" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
