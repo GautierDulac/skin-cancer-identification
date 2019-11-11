@@ -57,7 +57,7 @@ print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
 
 if model_select == 2:
-    activation_map()
+    activation_map(model_applied, predictions, all_classes, prepare_dsets())
 
 # validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
 # batch_size_preconvfeat, num_workers)
