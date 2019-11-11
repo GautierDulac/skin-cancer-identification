@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/TestCC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/TestLMS.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualizing.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualizing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,13 +72,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00039" summary="UPDATE - Add torch.nn">
-      <created>1573224516680</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1573224516680</updated>
     </task>
     <task id="LOCAL-00040" summary="UPDATE - Remove all prints now it's working">
       <created>1573224894704</created>
@@ -420,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573501308697</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="UPDATE - Test on Real Life photo">
+      <created>1573503807491</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1573503807491</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView">
@@ -464,7 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UPDATE - remove code unused" />
     <MESSAGE value="UPDATE - debug" />
     <MESSAGE value="ADD - plt.show" />
     <MESSAGE value="ADD - plt.savefig name" />
@@ -489,7 +484,8 @@
     <MESSAGE value="UPDATE - Correction Visu" />
     <MESSAGE value="UPDATE - Change image" />
     <MESSAGE value="UPDATE - increase epochs number" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - increase epochs number" />
+    <MESSAGE value="UPDATE - Test on Real Life photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Test on Real Life photo" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

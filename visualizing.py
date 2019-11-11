@@ -75,8 +75,8 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     """
 
     # IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
-    IMG_URL = 'data/TestCC.jpg'
-    TEST_SAVE = 'TestCC'
+    IMG_URL = 'data/TestLMS.jpg'
+    TEST_SAVE = 'TestLMS'
 
     # Activation map part
     finalconv_name = 'layer4'
