@@ -73,7 +73,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     :return:
     """
 
-    IMG_URL = 'data/train/malignant/'+img_number+'.jpg'
+    IMG_URL = 'https://drive.google.com/open?id=1CQkp6oCHAGmVnSDRL1mm1Aw9Ly4ONndc'
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -125,7 +125,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
         normalize
     ])
 
-    response = torchvision.datasets.ImageFolder(IMG_URL)
+    response = requests.get(IMG_URL)
     print(response)
     img_pil = Image.open(io.BytesIO(response.content))
     img_pil.save('test.jpg')
