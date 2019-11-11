@@ -54,6 +54,9 @@ def final_visualisation(predictions, all_classes, dsets):
         i += 1
     return ()
 
+def activation_map():
+
+    return()
 
 def training_visualisation(loss_list, acc_list, recall_list):
     """

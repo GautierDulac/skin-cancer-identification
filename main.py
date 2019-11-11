@@ -1,6 +1,6 @@
 ###Imports
 from modelling import validation_model_preconvfeat
-from visualizing import final_visualisation
+from visualizing import final_visualisation, activation_map
 from preprocessing import prepare_dsets
 from torchvision import models
 import torch.optim as optim
@@ -55,5 +55,9 @@ predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied
 
 print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
+
+if model_select == 2:
+    activation_map()
+
 # validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
 # batch_size_preconvfeat, num_workers)
