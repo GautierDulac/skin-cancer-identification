@@ -151,8 +151,7 @@ def validation_model(model, dataloader, size):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
-                                 batch_size_preconvfeat, num_workers, optim = torch.optim.Adam(model.classifier.parameters())):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers, optim = torch.optim.Adam(model.classifier.parameters())):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -170,6 +169,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
+
     '''
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
