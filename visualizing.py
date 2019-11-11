@@ -97,7 +97,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
 
     # get the softmax weight
     params = list(resnet_model.parameters())
-    weight_softmax = np.squeeze(params[-2].data.numpy())
+    weight_softmax = np.squeeze(params[-2].to('cpu').data.numpy())
 
     def returnCAM(feature_conv, weight_softmax, class_idx):
         # generate the class activation maps upsample to 256x256
