@@ -179,7 +179,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
     '''
-    
+
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim)
 
     predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size)
