@@ -34,15 +34,13 @@ for param in model_applied.parameters():
 
 if model_select == 1:
     model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
-    model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim = 1)
     optimizer = torch.optim.Adam(model_applied.classifier.parameters())
-    criterion = nn.NLLLoss()
 
 else:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
     optimizer = torch.optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
-    criterion = nn.CrossEntropyLoss()
+
 
 
 model_applied = model_applied.to(device)

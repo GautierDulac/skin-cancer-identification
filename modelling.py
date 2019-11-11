@@ -17,7 +17,7 @@ fpath = 'data/imagenet_class_index.json'
 batch_size_preconvfeat = 128
 num_epochs = 100
 # Define a loss function
-# in the main not a constant
+criterion = nn.CrossEntropyLoss()
 # Define an optimizer function
 lr = 0.01
 

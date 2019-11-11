@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
     </list>
@@ -73,13 +74,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00009" summary="UPDATE - debug">
-      <created>1573125127007</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1573125127007</updated>
     </task>
     <task id="LOCAL-00010" summary="UPDATE - debug">
       <created>1573125637087</created>
@@ -417,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573472874610</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="debug">
+      <created>1573477043297</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1573477043297</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -461,8 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
-    <MESSAGE value="UPDATE - TEST" />
     <MESSAGE value="UPDATE - TEST put 2 back instead of 1000 for proba array" />
     <MESSAGE value="UPDATE - Change optimizer" />
     <MESSAGE value="UPDATE - Remove prints" />
@@ -489,7 +488,8 @@
     <MESSAGE value="UPDATE - debug viz" />
     <MESSAGE value="REMOVE - All Code" />
     <MESSAGE value="UPDATE - test other savefig for final viz" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - test other savefig for final viz" />
+    <MESSAGE value="debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
