@@ -4,10 +4,16 @@ import matplotlib.pyplot as plt
 import torch
 import torchvision
 from numpy.random import permutation
-from torchviz import make_dot
 import cv2
 from torch.nn import functional as F
 
+import io
+import requests
+from PIL import Image
+from torchvision import models, transforms
+from torch.autograd import Variable
+import pdb
+from matplotlib.pyplot import imshow
 
 ###Constants
 
@@ -58,7 +64,7 @@ def final_visualisation(predictions, all_classes, dsets):
     return ()
 
 
-def activation_map(resnet_model, predictions, all_classes, dsets):
+def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"):
     """
 
     :param predictions:
@@ -66,12 +72,8 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
     :param dsets:
     :return:
     """
-    # Number of images to view for each visualization task
-    n_view = 1
-    correct = np.where(predictions == all_classes)[0]
-    idx = permutation(correct)[:n_view]
-    loader_correct = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
-    i = 0
+
+    IMG_URL = 'data/train/malignant/'+img_number+'.jpg'
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -113,17 +115,26 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
             output_cam.append(cv2.resize(cam_img, size_upsample))
         return output_cam
 
+    normalize = transforms.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+    )
+    preprocess = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        normalize
+    ])
+
+    response = requests.get(IMG_URL)
+    img_pil = Image.open(io.BytesIO(response.content))
+    img_pil.save('test.jpg')
+
+    img_tensor = preprocess(img_pil)
+    img_variable = Variable(img_tensor.unsqueeze(0))
+    logit = resnet_model(img_variable)
+
     classes = {0: "benign", 1: "malignant"}
 
-    for data in loader_correct:
-        input_cor, labels_cor = data
-
-    print("Shape input")
-    print(input_cor.size())
-
-    input_cor = input_cor[0]
-
-    logit = resnet_model(input_cor)
     h_x = F.softmax(logit, dim=1).data.squeeze()
     probs, idx = h_x.sort(0, True)
     probs = probs.numpy()
@@ -138,7 +149,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
 
     # render the CAM and output
     print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
-    img = input_cor
+    img = cv2.imread('test.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
@@ -149,7 +160,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
 
     # render the CAM and output
     print('output CAM.jpg for the top2 prediction: %s' % classes[idx[2]])
-    img = input_cor
+    img = cv2.imread('test.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
