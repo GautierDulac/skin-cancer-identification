@@ -74,13 +74,6 @@
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
     </task>
-    <task id="LOCAL-00012" summary="UPDATE - debug">
-      <created>1573126314161</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1573126314161</updated>
-    </task>
     <task id="LOCAL-00013" summary="UPDATE - debug">
       <created>1573126429551</created>
       <option name="number" value="00013" />
@@ -417,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573478766420</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="debug mobilenet">
+      <created>1573478878131</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1573478878131</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView">
