@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="">
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="merge models">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelling.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelling.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,13 +74,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00002" summary="Add to device in the model part for cuda">
-      <created>1573123119933</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1573123119933</updated>
     </task>
     <task id="LOCAL-00003" summary="Add to device in the model part for cuda">
       <created>1573123210666</created>
@@ -416,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573233533409</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="debug">
+      <created>1573233688748</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1573233688749</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView">
@@ -460,7 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Correct typo" />
     <MESSAGE value="UPDATE - test pipeline" />
     <MESSAGE value="UPDATE - debug remove print" />
     <MESSAGE value="UPDATE - change size 2 to 1000 ? TEST" />
@@ -483,9 +484,10 @@
     <MESSAGE value="UPDATE - remove code unused" />
     <MESSAGE value="UPDATE - debug" />
     <MESSAGE value="testing for new models" />
-    <MESSAGE value="debug" />
     <MESSAGE value="new code ver" />
-    <option name="LAST_COMMIT_MESSAGE" value="new code ver" />
+    <MESSAGE value="debug" />
+    <MESSAGE value="merge models" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
