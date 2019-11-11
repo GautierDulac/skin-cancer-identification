@@ -125,7 +125,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
         normalize
     ])
 
-    response = requests.get(IMG_URL)
+    response = cv2.imread(IMG_URL)
     img_pil = Image.open(io.BytesIO(response.content))
     img_pil.save('test.jpg')
 
