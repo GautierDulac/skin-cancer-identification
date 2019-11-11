@@ -74,13 +74,6 @@
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
     </task>
-    <task id="LOCAL-00011" summary="UPDATE - test pipeline">
-      <created>1573126157535</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1573126157535</updated>
-    </task>
     <task id="LOCAL-00012" summary="UPDATE - debug">
       <created>1573126314161</created>
       <option name="number" value="00012" />
@@ -417,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573477263288</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="debug mobilenet">
+      <created>1573478766420</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1573478766420</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">
@@ -461,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UPDATE - Remove prints" />
     <MESSAGE value="UPDATE - Debug on validation model function" />
     <MESSAGE value="UPDATE - Debug on validation model function - using criterion" />
     <MESSAGE value="UPDATE - Debug on preconvfeat loeaders" />
@@ -486,7 +485,8 @@
     <MESSAGE value="REMOVE - All Code" />
     <MESSAGE value="UPDATE - test other savefig for final viz" />
     <MESSAGE value="debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug" />
+    <MESSAGE value="debug mobilenet" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug mobilenet" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

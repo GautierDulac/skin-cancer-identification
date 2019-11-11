@@ -30,17 +30,17 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 for param in model_applied.parameters():
     param.requires_grad = False
 
-if model_select == 1:
-    model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
-    model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
-    criterion = nn.NLLLoss()
-
-else:
+if model_select == 2:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
     optimizer = optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
+
+else:
+    model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
+    model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
+    criterion = nn.NLLLoss()
 
 model_applied = model_applied.to(device)
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
