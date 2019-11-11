@@ -116,14 +116,14 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
     classes = {0: "benign", 1: "malignant"}
 
     for data in loader_correct:
-        input, = data
+        input_cor, = data
 
     print("Shape input")
-    print(input.shape)
+    print(input_cor.shape)
 
-    input = input[0]
+    input_cor = input_cor[0]
 
-    logit = resnet_model(input)
+    logit = resnet_model(input_cor)
     h_x = F.softmax(logit, dim=1).data.squeeze()
     probs, idx = h_x.sort(0, True)
     probs = probs.numpy()
@@ -138,7 +138,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
 
     # render the CAM and output
     print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
-    img = input
+    img = input_cor
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
@@ -149,7 +149,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets):
 
     # render the CAM and output
     print('output CAM.jpg for the top2 prediction: %s' % classes[idx[2]])
-    img = input
+    img = input_cor
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
