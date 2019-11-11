@@ -41,7 +41,7 @@ if model_select == 1:
 else:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
-    optimizer =  optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
+    optimizer = torch.optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
 
 
