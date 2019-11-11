@@ -16,7 +16,7 @@ num_epochs = 15
 # Define a loss function
 # in the main not a constant
 # Define an optimizer function
-lr = 0.05
+lr = 0.01
 
 
 ###Main function
