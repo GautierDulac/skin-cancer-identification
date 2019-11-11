@@ -158,7 +158,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     cv2.imwrite('CAM_True_' + classes[idx[0]] + '_Image_' + IMG_URL + '.jpg', result)
 
     # generate class activation mapping for the top2 prediction
-    CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[2]])
+    CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[1]])
 
     # render the CAM and output
     print('output CAM.jpg for the top2 prediction: %s' % classes[idx[1]])
