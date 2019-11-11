@@ -15,9 +15,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
-num_epochs = 100
+num_epochs = 10
 # Define a loss function
-criterion = nn.CrossEntropyLoss()
+# in the main not a constant
 # Define an optimizer function
 lr = 0.01
 
@@ -60,7 +60,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
 
 
 
-def train_model(model, dataloader, size, epochs=1, optimizer=None):
+def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None):
     '''
     Computes loss and accuracy on validation test
 
@@ -109,7 +109,7 @@ def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
     plt.plot(recall_list)
 
-def validation_model(model, dataloader, size):
+def validation_model(model, dataloader, size, criterion):
     '''
     Computes loss and accuracy on validation test
 
@@ -151,7 +151,7 @@ def validation_model(model, dataloader, size):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers, optim):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers, optim = None, criterion=None):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -175,10 +175,10 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
     '''
 
-    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim)
+    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion)
 
 
-    predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size)
+    predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size, criterion=criterion)
 
 
     return predictions, all_proba, all_classes
