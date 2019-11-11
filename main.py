@@ -8,7 +8,7 @@ import torch
 import torch.nn as nn
 
 ###Constants
-model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet"))
+model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet\n"))
 if model_select == 1:
     model_applied = models.vgg16(pretrained=True)
 elif model_select == 2:
