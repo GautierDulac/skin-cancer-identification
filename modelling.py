@@ -177,9 +177,10 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
 
-    #if model_select in [1,3]:
-    #    loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
-    #    loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+    if model_select in [1,3]:
+        loader_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
+        loader_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+        model = model.classifier
 
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
