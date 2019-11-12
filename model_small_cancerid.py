@@ -1,21 +1,11 @@
 ### Imports
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from preprocessing import split_train_valid_sets
 from modelling import train_model
 from modelling import validation_model
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
 ###Constants
-data_dir = 'data'
-batch_size_train = 64
-batch_size_val = 5
-shuffle_train = True
-shuffle_val = False
-num_workers = 6
-epochs_jump = 2
 
 
 ###Load function
@@ -53,7 +43,7 @@ class classifier(nn.Module):
         return num_features
 
 
-### Training with early stoppping
+### main model function
 
 def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers,
                                    optim=None, criterion=None, model_select=None, num_epochs=None, lr=None):
