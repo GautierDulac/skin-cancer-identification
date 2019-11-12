@@ -57,7 +57,7 @@ class classifier(nn.Module):
 ### Training with early stoppping
 
 def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers,
-                                   optim=None, criterion=None, model_select=None, num_epochs=None, lr=lr):
+                                   optim=None, criterion=None, model_select=None, num_epochs=None, lr=None):
     # model_applied, batch_size_train, batch_size_val,
     # shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr
 
