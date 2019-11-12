@@ -56,6 +56,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
     '''
     Computes loss and accuracy on validation test
 
+    :param num_epochs:
     :param lr:
     :param model_select:
     :param criterion:
@@ -103,7 +104,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
         acc_list.append(epoch_acc)
         precision_list.append(epoch_precision)
         recall_list.append(epoch_recall)
-    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr, num_epochs)
+    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr, epochs)
 
 
 def multi_plots(loss_list, recall_list):
@@ -175,11 +176,11 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
-
-
-    #loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
-    #loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
-
+"""
+    if model_select in [1,3]:
+        loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
+        loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+"""
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
                 criterion=criterion, model_select=model_select, lr=lr)
