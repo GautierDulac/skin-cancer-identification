@@ -177,8 +177,8 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
                                                                                 shuffle_valid, num_workers)
 
 
-    loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
-    loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+    #loaderfeat_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
+    #loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
 
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
