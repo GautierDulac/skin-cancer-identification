@@ -73,6 +73,9 @@ def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuf
     :return:
     """
 
+    for param in model.parameters():
+        param.requires_grad = False
+
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val,
                                                                                 shuffle_train, shuffle_val, num_workers)
     train_model(model, loader_train, batch_size_train, epochs=num_epochs, optimizer=optim, criterion=criterion,
