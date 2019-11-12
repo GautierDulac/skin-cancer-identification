@@ -106,19 +106,19 @@ def train(model,data_loader,loss_fn,optimizer,n_epochs=1):
         size = 0
         for data in data_loader:
           
-          inputs, labels = data
-          bs = labels.size(0)
+          inputs, classes = data
+          bs = classes.size(0)
           inputs = inputs.to(device)
-          labels = labels.to(device)
+          classes = classes.to(device)
           outputs = model(inputs)
-          loss = loss_fn(outputs,labels) 
+          loss = loss_fn(outputs,classes) 
           optimizer = optimizer_cl
           optimizer.zero_grad()
           loss.backward()
           optimizer.step()
           _,preds = torch.max(outputs.data,1)
           running_loss+=loss
-          running_corrects += torch.sum(preds==labels.data)
+          running_corrects += torch.sum(preds==classes.data)
 
           size += bs
         epoch_loss = running_loss.item() / size
@@ -130,7 +130,7 @@ def train(model,data_loader,loss_fn,optimizer,n_epochs=1):
         acc_train[epoch_num] = epoch_acc
         r_train[epoch_num] = epoch_recall
         print('Train - Loss: {:.4f} Acc: {:.4f} Rec: {:.4f}'.format(epoch_loss, epoch_acc, epoch_recall))
-    return loss_train, acc_train, r_train
+#    return loss_train, acc_train, r_train
 
 ### Test function
 
@@ -141,46 +141,34 @@ def test(model,data_loader):
     running_positives = 0
     running_true_positives = 0
     size = 0
-
+    i = 0
     for data in data_loader:
-        inputs, labels = data
+        inputs, classes = data
         inputs = inputs.to(device)
-        labels = labels.to(device)
-        bs = labels.size(0) 
+        classes = classes.to(device)
+        bs = classes.size(0) 
         outputs = model(inputs).to(device)
-        classes = labels == 1
         loss = loss_fn(outputs,classes.type(torch.cuda.LongTensor))
         _,preds = torch.max(outputs,1)
         running_corrects += torch.sum(preds == classes.data.type(torch.cuda.LongTensor))
         running_loss += loss.data
         running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
         running_positives += torch.sum(classes.data == 1)
+        predictions[i:i+len(classes)] = preds.to('cpu').numpy()
+        all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
+        all_proba[i:i+len(classes), :] = outputs.data.to('cpu').numpy()
+        i += len(classes)
         epoch_recall = running_true_positives.to('cpu').numpy() / running_positives.to('cpu').numpy()
         size += bs
         l_test, a_test = running_loss / size, running_corrects.item() / size
-    print('Test - Loss: {:.4f} Acc: {:.4f}'.format(l_test, a_test))
-    return(l_test, a_test, epoch_recall)
+    print('Test - Loss: {:.4f} Acc: {:.4f} Rec: {:.4f}'.format(l_test, a_test, r_test))
+    return predictions, all_proba, all_classes
 
 ### Training with early stoppping
     
-def validation_model_preconvfeat(model = classifier().cuda() , batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
+def validation_model_preconvfeat(model , batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
                                  batch_size_preconvfeat, num_workers, optim = torch.optim.Adam(model.parameters(), lr = learning_rate)):
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers)
-    acc_list_t ,loss_list_t, r_list_t = [],[],[]
-    acc_list_test ,loss_list_test, r_list_test = [],[],[]
-    for epoch in range(0,n_epochs, epochs_jump):
-        l_t, a_t, r_t = train(model,loader_train,loss_fn,optimizer_cl,n_epochs = 2)
-        acc_list_t.append(a_t)
-        loss_list_t.append(l_t)
-        r_list_t.append(r_t)
-        l_test, a_test, r_test = test(model,loader_valid)
-        acc_list_test.append(a_test)
-        loss_list_test.append(l_test)
-        r_list_test.append(r_test)
-#    plt.plot(acc_list_t)
-#    plt.plot(acc_list_test)
-    plt.plot(loss_list_t)
-    plt.plot(loss_list_test)
-    plt.plot(r_list_t)
-    plt.plot(r_list_test)
-    plt.show()  
+    train(model,loader_train,loss_fn,optimizer_cl,n_epochs)
+    predictions, all_proba, all_classes = test(model,loader_valid)        
+    return predictions, all_proba, all_classes
