@@ -73,4 +73,5 @@ def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuf
                 model_select=model_select, lr=lr)
 
     predictions, all_proba, all_classes = validation_model(model, loader_valid, batch_size_val, criterion)
+
     return predictions, all_proba, all_classes

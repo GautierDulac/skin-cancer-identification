@@ -24,8 +24,7 @@ elif model_select == 2:
 elif model_select == 3:
     model_applied = models.mobilenet_v2(pretrained=True)
 elif model_select == 4:
-    classif = classifier()
-    model_applied = classif.cuda()
+    model_applied = classifier()
 
 batch_size_train = 64
 batch_size_val = 5
