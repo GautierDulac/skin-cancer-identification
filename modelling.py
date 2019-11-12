@@ -140,6 +140,8 @@ def validation_model(model, dataloader, size, criterion):
         inputs = inputs.to(device)
         classes = classes.to(device)
         outputs = model(inputs)
+        print(inputs.size())
+        print(outputs.size())
         loss = criterion(outputs, classes)
         _, preds = torch.max(outputs.data, 1)
         # statistics
