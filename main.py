@@ -79,7 +79,7 @@ else:
                                                                        lr)
 
 # print(predictions)
-final_visualisation(predictions, all_classes, prepare_dsets())
+final_visualisation(predictions, all_classes, prepare_dsets(), model_select)
 
 if model_select == 2:
     file_name = str(input(

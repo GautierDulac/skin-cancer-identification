@@ -43,7 +43,7 @@ def imshow(inp, title=None, i=0, label=""):
     plt.imsave(label+"-" + str(i) + "-" + str(title) + ".png", inp)
 
 
-def final_visualisation(predictions, all_classes, dsets):
+def final_visualisation(predictions, all_classes, dsets, model_select):
     """
 
     :param predictions:
@@ -56,24 +56,20 @@ def final_visualisation(predictions, all_classes, dsets):
     correct = np.where(predictions == all_classes)[0]
     idx = permutation(correct)[:n_view]
     loader_correct = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
-    i = 0
     for data in loader_correct:
         inputs_cor, labels_cor = data
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
-        imshow(out, title=[l.item() for l in labels_cor], i=i, label="Correct")
-        i += 1
+        imshow(out, title=[l.item() for l in labels_cor], i=model_select, label="Correct")
 
     errors = np.where(predictions != all_classes)[0]
     idx = permutation(errors)[:n_view]
     loader_errors = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
-    i = 0
     for data in loader_errors:
         inputs_err, labels_err = data
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_err)
-        imshow(out, title=[l.item() for l in labels_err], i=i, label="Error")
-        i += 1
+        imshow(out, title=[l.item() for l in labels_err], i=model_select, label="Error")
     return ()
 
 
