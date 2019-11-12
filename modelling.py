@@ -179,7 +179,13 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     if model_select in [1, 3]:
         loader_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
         loader_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
+        print(model)
         model = model.classifier
+        print(model)
+        for data in loader_train:
+            inputs, = data
+            print(inputs.size())
+            break
         print("Preconvfeat done")
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
