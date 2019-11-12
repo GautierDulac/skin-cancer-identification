@@ -187,10 +187,6 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
         print(model)
         model = model.classifier
         print(model)
-        for data in loader_train:
-            inputs, = data
-            print(inputs.size())
-            break
         print("Preconvfeat done")
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
