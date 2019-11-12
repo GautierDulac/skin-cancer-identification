@@ -36,9 +36,9 @@ class classifier(nn.Module):
         return F.log_softmax(x, dim=1)
 
     def num_flat_features(self, x):
-        size = x.size()[1:]  # all dimensions except the batch dimension
+        size_features = x.size()[1:]  # all dimensions except the batch dimension
         num_features = 1
-        for s in size:
+        for s in size_features:
             num_features *= s
         return num_features
 
@@ -68,7 +68,9 @@ def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuf
 
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val,
                                                                                 shuffle_train, shuffle_val, num_workers)
+
     train_model(model, loader_train, batch_size_train, epochs=num_epochs, optimizer=optim, criterion=criterion,
                 model_select=model_select, lr=lr)
+
     predictions, all_proba, all_classes = validation_model(model, loader_valid, batch_size_val, criterion)
     return predictions, all_proba, all_classes
