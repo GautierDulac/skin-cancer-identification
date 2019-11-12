@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch
 import torchvision
 from numpy.random import permutation
+from numpy.random import randint
 import cv2
 from torch.nn import functional as F
 
@@ -201,5 +202,7 @@ def training_visualisation(loss_list, acc_list, recall_list):
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
-    fig.savefig("training_metrics.png")
+    random_int = randint(0,100)
+
+    fig.savefig("training_metrics_"+str(random_int)+".png")
     plt.show()
