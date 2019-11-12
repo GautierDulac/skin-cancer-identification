@@ -23,7 +23,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 ###Core functions
-def imshow(inp, title=None, i=0):
+def imshow(inp, title=None, i=0, label=""):
     """
 
     :param inp:
@@ -39,7 +39,7 @@ def imshow(inp, title=None, i=0):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.imsave("Corrects-" + str(i) + "-" + str(title) + ".png", inp)
+    plt.imsave(label+"-" + str(i) + "-" + str(title) + ".png", inp)
 
 
 def final_visualisation(predictions, all_classes, dsets):
@@ -60,7 +60,18 @@ def final_visualisation(predictions, all_classes, dsets):
         inputs_cor, labels_cor = data
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
-        imshow(out, title=[l.item() for l in labels_cor], i=i)
+        imshow(out, title=[l.item() for l in labels_cor], i=i, label="Correct")
+        i += 1
+
+    errors = np.where(predictions != all_classes)[0]
+    idx = permutation(errors)[:n_view]
+    loader_errors = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
+    i = 0
+    for data in loader_errors:
+        inputs_err, labels_err = data
+        # Make a grid from batch
+        out = torchvision.utils.make_grid(inputs_err)
+        imshow(out, title=[l.item() for l in labels_err], i=i, label="Error")
         i += 1
     return ()
 
