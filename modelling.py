@@ -72,12 +72,14 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
     loss_list = []
     acc_list = []
     recall_list = []
+    precision_list = []
 
     for epoch in range(epochs):
         running_loss = 0.0
         running_corrects = 0
         running_true_positives = 0
         running_positives = 0
+        running_pred_positives = 0
         for inputs, classes in dataloader:
             inputs = inputs.to(device)
             classes = classes.to(device)
@@ -91,16 +93,19 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
             running_loss += loss.data.item()
             running_corrects += torch.sum(preds == classes.data)
             running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
+            running_pred_positives += torch.sum(preds == 1)
             running_positives += torch.sum(classes.data == 1)
         epoch_loss = running_loss / size
         epoch_acc = running_corrects.data.item() / size
         epoch_recall = running_true_positives.to('cpu').numpy() / running_positives.to('cpu').numpy()
-        print('Loss: {:.4f} Acc: {:.4f} Recall: {:.4f}'.format(
-            epoch_loss, epoch_acc, epoch_recall))
+        epoch_precision = running_true_positives.to('cpu').numpy() / running_pred_positives.to('cpu').numpy()
+        print('Loss: {:.4f} Acc: {:.4f} Precision: {:.4f} Recall: {:.4f}'.format(
+            epoch_loss, epoch_acc, epoch_precision, epoch_recall))
         loss_list.append(epoch_loss)
         acc_list.append(epoch_acc)
+        precision_list.append(epoch_precision)
         recall_list.append(epoch_recall)
-    training_visualisation(loss_list, acc_list, recall_list, model_select)
+    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select)
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)

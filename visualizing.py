@@ -181,8 +181,9 @@ def activation_map(resnet_model, file_name, save_name):
     return ()
 
 
-def training_visualisation(loss_list, acc_list, recall_list, model_select):
+def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select):
     """
+    :param precision_list:
     :param model_select:
     :param loss_list: list of epoch loss
     :param acc_list: list of epoch accuracy
@@ -194,10 +195,11 @@ def training_visualisation(loss_list, acc_list, recall_list, model_select):
     plt.figure(figsize=(16, 6))
 
     ax1.plot(acc_list, 'r--')
+    ax1.plot(precision_list, 'y--')
     ax1.plot(recall_list, 'g--')
     ax2.plot(loss_list, 'b-')
 
-    ax1.legend(['Accuracy', 'Recall'])
+    ax1.legend(['Accuracy', 'Precision', 'Recall'])
     ax2.legend(['Loss'])
     ax1.set_ylabel('Metric')
     ax2.set_ylabel('Loss')
