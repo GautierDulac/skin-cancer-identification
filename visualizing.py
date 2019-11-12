@@ -76,18 +76,17 @@ def final_visualisation(predictions, all_classes, dsets):
     return ()
 
 
-def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"):
+def activation_map(resnet_model, file_name, save_name):
     """
 
-    :param predictions:
-    :param all_classes:
-    :param dsets:
+    :param resnet_model:
+    :param file_name:
+    :param save_name:
     :return:
     """
 
-    # IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
-    IMG_URL = 'data/TestLMS.jpg'
-    TEST_SAVE = 'TestLMS'
+    IMG_URL = file_name
+    TEST_SAVE = save_name
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -166,7 +165,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_True_' + classes[idx[0]] + '_Image_' + TEST_SAVE + '.jpg', result)
+    cv2.imwrite('CAM_True_' + classes[idx[0]] + "_Prob_" + str(probs[idx[0]]) + '_Image_' + TEST_SAVE + '.jpg', result)
 
     # generate class activation mapping for the top2 prediction
     CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[1]])
@@ -177,7 +176,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_False_' + classes[idx[1]] + '_Image_' + TEST_SAVE + '.jpg', result)
+    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[idx[1]]) + '_Image_' + TEST_SAVE + '.jpg', result)
     return ()
 
 

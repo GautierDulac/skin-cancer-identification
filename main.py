@@ -57,7 +57,10 @@ print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
 
 if model_select == 2:
-    activation_map(model_applied, predictions, all_classes, prepare_dsets())
+    file_name = str(input('Please Select the file on which to save the activation map : Enter the path from the project directory\n'))
+    save_name = str(input('Save the image to the following name\n'))
+
+    activation_map(model_applied, file_name, save_name)
 
 # validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
 # batch_size_preconvfeat, num_workers)
