@@ -162,7 +162,7 @@ def activation_map(resnet_model, file_name, save_name):
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_True_' + classes[idx[0]] + "_Prob_" + str(probs[idx[0]]) + '_Image_' + TEST_SAVE + '.jpg', result)
+    cv2.imwrite('CAM_True_' + classes[idx[0]] + "_Prob_" + str(probs[0]) + '_Image_' + TEST_SAVE + '.jpg', result)
 
     # generate class activation mapping for the top2 prediction
     CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[1]])
@@ -173,7 +173,7 @@ def activation_map(resnet_model, file_name, save_name):
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[idx[1]]) + '_Image_' + TEST_SAVE + '.jpg', result)
+    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[0]) + '_Image_' + TEST_SAVE + '.jpg', result)
     return ()
 
 
