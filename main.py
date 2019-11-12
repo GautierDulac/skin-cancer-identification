@@ -2,7 +2,7 @@
 from modelling import validation_model_preconvfeat
 from visualizing import final_visualisation, activation_map
 from preprocessing import prepare_dsets
-from model_small_cancerid import validation_model_preconvfeat_2, classifier
+from model_small_cancerid import classifier
 from torchvision import models
 import torch.optim as optim
 import torch
