@@ -2,7 +2,7 @@
 from modelling import validation_model_preconvfeat
 from visualizing import final_visualisation, activation_map
 from preprocessing import prepare_dsets
-from model_small_cancerid import validation_model_preconvfeat_2
+from model_small_cancerid import validation_model_preconvfeat_2, classifier
 from torchvision import models
 import torch.optim as optim
 import torch
@@ -24,6 +24,9 @@ elif model_select == 2:
     model_applied = models.resnet18(pretrained=True)
 elif model_select == 3:
     model_applied = models.mobilenet_v2(pretrained=True)
+elif model_select == 4:
+    classif = classifier()
+    model_applied = classif.cuda()
 
 batch_size_train = 64
 batch_size_val = 5
@@ -44,40 +47,37 @@ for param in model_applied.parameters():
 if model_select == 1 :
     model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
     model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters(), lr=lr)
     criterion = nn.NLLLoss()
 
 elif model_select == 2:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
-    optimizer = optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(model_applied.fc.parameters(), lr=lr, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
 
 elif model_select == 3:
     model_applied.classifier._modules['1'] = nn.Linear(1280, 2)
     model_applied.classifier._modules['2'] = torch.nn.LogSoftmax(dim=1)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters(), lr=lr)
     criterion = nn.NLLLoss()
     
 elif model_select == 4:
-    from model_small_cancerid import classifier
-    from model_small_cancerid import validation_model_preconvfeat
-    classif = classifier()
-    model_applied = classif.cuda()
-    optimizer = torch.optim.Adam(model_applied.parameters(), lr = 0.001)
-    
+    optimizer = torch.optim.Adam(model_applied.parameters(), lr=lr)
+    criterion = nn.NLLLoss()
+
     
 
 model_applied = model_applied.to(device)
 
 if model_select == 4:
-    predictions, all_proba, all_classes = validation_model_preconvfeat2(model_applied, batch_size_train, batch_size_val,
+    predictions, all_proba, all_classes = validation_model_preconvfeat_2(model_applied, batch_size_train, batch_size_val,
                                                                    shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
 else:
     predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
                                                                    shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
 
-print(predictions)
+#print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
 
 if model_select == 2:
@@ -86,4 +86,3 @@ if model_select == 2:
 
     activation_map(model_applied, file_name, save_name)
 
-final_visualisation(predctions, all_classes, prepare_dsets())

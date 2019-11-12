@@ -57,8 +57,21 @@ class classifier(nn.Module):
 
 def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers,
                                    optim=None, criterion=None, model_select=None, num_epochs=None, lr=None):
-    # model_applied, batch_size_train, batch_size_val,
-    # shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr
+    """
+
+    :param model:
+    :param batch_size_train:
+    :param batch_size_val:
+    :param shuffle_train:
+    :param shuffle_val:
+    :param num_workers:
+    :param optim:
+    :param criterion:
+    :param model_select:
+    :param num_epochs:
+    :param lr:
+    :return:
+    """
 
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val,
                                                                                 shuffle_train, shuffle_val, num_workers)
