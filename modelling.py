@@ -48,19 +48,21 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
         labels_list.extend(labels.data.cpu().numpy())
 
     conv_features = np.concatenate([[feat] for feat in conv_features])
-    datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in zip(conv_features, labels_list)]
+    datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
+                   zip(conv_features, labels_list)]
     datasetfeat = [(inputs.reshape(-1), classes) for [inputs, classes] in datasetfeat]
     loaderfeat = torch.utils.data.DataLoader(datasetfeat, batch_size=batch_size_preconvfeat, shuffle=shuffle)
 
     return loaderfeat
 
 
-
-
 def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None, lr=lr):
     '''
     Computes loss and accuracy on validation test
 
+    :param lr:
+    :param model_select:
+    :param criterion:
     :param model: neural network model
     :param dataloader: train loader
     :param size: number of images in the dataset
@@ -107,14 +109,17 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
         recall_list.append(epoch_recall)
     training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr)
 
+
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
     plt.plot(recall_list)
+
 
 def validation_model(model, dataloader, size, criterion):
     '''
     Computes loss and accuracy on validation test
 
+    :param criterion:
     :param model: neural network model
     :param dataloader: test loader
     :param size: number of images in the dataset
@@ -143,9 +148,9 @@ def validation_model(model, dataloader, size, criterion):
         running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
         running_pred_positives += torch.sum(preds == 1)
         running_positives += torch.sum(classes.data == 1)
-        predictions[i:i+len(classes)] = preds.to('cpu').numpy()
-        all_classes[i:i+len(classes)] = classes.to('cpu').numpy()
-        all_proba[i:i+len(classes), :] = outputs.data.to('cpu').numpy()
+        predictions[i:i + len(classes)] = preds.to('cpu').numpy()
+        all_classes[i:i + len(classes)] = classes.to('cpu').numpy()
+        all_proba[i:i + len(classes), :] = outputs.data.to('cpu').numpy()
         i += len(classes)
     epoch_loss = running_loss / size
     epoch_acc = running_corrects.data.item() / size
@@ -157,7 +162,7 @@ def validation_model(model, dataloader, size, criterion):
 
 
 def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers,
-                                 optim = None, criterion=None, model_select=None, num_epochs=num_epochs, lr=lr):
+                                 optim=None, criterion=None, model_select=None, num_epochs=num_epochs, lr=lr):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -171,7 +176,6 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     :return: predictions, probabilities and classes for the validation set
     '''
 
-
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train,
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
@@ -181,10 +185,10 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
     '''
 
-    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion, model_select=model_select, lr=lr)
+    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
+                criterion=criterion, model_select=model_select, lr=lr)
 
-
-    predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size, criterion=criterion)
-
+    predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size=valid_size,
+                                                           criterion=criterion)
 
     return predictions, all_proba, all_classes
