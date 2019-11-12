@@ -2,6 +2,7 @@
 from modelling import validation_model_preconvfeat
 from visualizing import final_visualisation, activation_map
 from preprocessing import prepare_dsets
+from model_small_cancerid import validation_model_preconvfeat_2
 from torchvision import models
 import torch.optim as optim
 import torch
@@ -69,8 +70,8 @@ elif model_select == 4:
 model_applied = model_applied.to(device)
 
 if model_select == 4:
-    predictions, all_proba, all_classes = model_small_cancerid.validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
-                                                                   shuffle_train, shuffle_val, num_workers, optimizer)
+    predictions, all_proba, all_classes = validation_model_preconvfeat2(model_applied, batch_size_train, batch_size_val,
+                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
 else:
     predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
                                                                    shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
