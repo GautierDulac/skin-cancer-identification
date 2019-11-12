@@ -42,8 +42,6 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
         conv_features.extend(x.data.cpu().numpy())
         labels_list.extend(labels.data.cpu().numpy())
 
-    print(x.size())
-
     conv_features = np.concatenate([[feat] for feat in conv_features])
     datasetfeat = [[torch.from_numpy(f).type(dtype), torch.tensor(l).type(torch.long)] for (f, l) in
                    zip(conv_features, labels_list)]
@@ -181,12 +179,10 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
                                                                                 batch_size_val, shuffle_train,
                                                                                 shuffle_valid, num_workers)
 
-    if model_select in [1, 3]:
+    if model_select == 1:
         loader_train = create_preconvfeat_loader(loader_train, model, batch_size_preconvfeat, shuffle_train)
         loader_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
-        print(model)
         model = model.classifier
-        print(model)
         print("Preconvfeat done")
 
     train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer=optim,
