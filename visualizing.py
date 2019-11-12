@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch
 import torchvision
 from numpy.random import permutation
+from numpy.random import randint
 import cv2
 from torch.nn import functional as F
 
@@ -18,11 +19,12 @@ from matplotlib.pyplot import imshow
 ###Constants
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+
 ###Main function
 
 
 ###Core functions
-def imshow(inp, title=None, i=0):
+def imshow(inp, title=None, i=0, label=""):
     """
 
     :param inp:
@@ -38,7 +40,7 @@ def imshow(inp, title=None, i=0):
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.imsave("Corrects-" + str(i) + "-" + str(title) + ".png", inp)
+    plt.imsave(label+"-" + str(i) + "-" + str(title) + ".png", inp)
 
 
 def final_visualisation(predictions, all_classes, dsets):
@@ -59,22 +61,33 @@ def final_visualisation(predictions, all_classes, dsets):
         inputs_cor, labels_cor = data
         # Make a grid from batch
         out = torchvision.utils.make_grid(inputs_cor)
-        imshow(out, title=[l.item() for l in labels_cor], i=i)
+        imshow(out, title=[l.item() for l in labels_cor], i=i, label="Correct")
+        i += 1
+
+    errors = np.where(predictions != all_classes)[0]
+    idx = permutation(errors)[:n_view]
+    loader_errors = torch.utils.data.DataLoader([dsets['valid'][x] for x in idx], batch_size=n_view, shuffle=True)
+    i = 0
+    for data in loader_errors:
+        inputs_err, labels_err = data
+        # Make a grid from batch
+        out = torchvision.utils.make_grid(inputs_err)
+        imshow(out, title=[l.item() for l in labels_err], i=i, label="Error")
         i += 1
     return ()
 
 
-def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"):
+def activation_map(resnet_model, file_name, save_name):
     """
 
-    :param predictions:
-    :param all_classes:
-    :param dsets:
+    :param resnet_model:
+    :param file_name:
+    :param save_name:
     :return:
     """
 
-    #IMG_URL = 'https://www.dropbox.com/s/pizj50193hzzsmp/2.jpg?dl=0'
-    IMG_URL = 'data/train/malignant/2.jpg'
+    IMG_URL = file_name
+    TEST_SAVE = save_name
 
     # Activation map part
     finalconv_name = 'layer4'
@@ -126,10 +139,8 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
         normalize
     ])
 
-    #response = requests.get(IMG_URL)
-    #print(response.content)
     img_pil = Image.open(IMG_URL)
-    img_pil.save('test.jpg')
+    img_pil.save('test_' + TEST_SAVE + '.jpg')
 
     img_tensor = preprocess(img_pil)
     img_variable = Variable(img_tensor.unsqueeze(0)).to(device)
@@ -140,7 +151,7 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
     h_x = F.softmax(logit, dim=1).data.squeeze()
     probs, idx = h_x.sort(0, True)
     probs = probs.to('cpu').numpy()
-    idx = idx.to('cpu').numpy()
+    idx = idx.to('cpu').data.numpy()
 
     # output the prediction
     for i in range(0, 2):
@@ -151,22 +162,22 @@ def activation_map(resnet_model, predictions, all_classes, dsets, img_number="2"
 
     # render the CAM and output
     print('output CAM.jpg for the top1 prediction: %s' % classes[idx[0]])
-    img = cv2.imread('test.jpg')
+    img = cv2.imread('test_' + TEST_SAVE + '.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAMs[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_True_' + classes[idx[i]] + '.jpg', result)
+    cv2.imwrite('CAM_True_' + classes[idx[0]] + "_Prob_" + str(probs[idx[0]]) + '_Image_' + TEST_SAVE + '.jpg', result)
 
     # generate class activation mapping for the top2 prediction
-    CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[2]])
+    CAM1s = returnCAM(features_blobs[0], weight_softmax, [idx[1]])
 
     # render the CAM and output
-    print('output CAM.jpg for the top2 prediction: %s' % classes[idx[2]])
-    img = cv2.imread('test.jpg')
+    print('output CAM.jpg for the top2 prediction: %s' % classes[idx[1]])
+    img = cv2.imread('test_' + TEST_SAVE + '.jpg')
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_False_' + classes[idx[i]] + '.jpg', result)
+    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[idx[1]]) + '_Image_' + TEST_SAVE + '.jpg', result)
     return ()
 
 
@@ -191,5 +202,7 @@ def training_visualisation(loss_list, acc_list, recall_list):
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
-    fig.savefig("training_metrics.png")
+    random_int = randint(0,100)
+
+    fig.savefig("training_metrics_"+str(random_int)+".png")
     plt.show()

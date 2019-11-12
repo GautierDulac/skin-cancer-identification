@@ -1,10 +1,7 @@
 ###Imports
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import torch
-import torch.nn as nn
-from torchvision import models
 from PIL import ImageFile
 from preprocessing import split_train_valid_sets
 from visualizing import training_visualisation
@@ -15,7 +12,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 fpath = 'data/imagenet_class_index.json'
 
 batch_size_preconvfeat = 128
-num_epochs = 5
+num_epochs = 10
 # Define a loss function
 # in the main not a constant
 # Define an optimizer function

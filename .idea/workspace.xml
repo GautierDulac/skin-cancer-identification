@@ -73,90 +73,6 @@
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
     </task>
-    <task id="LOCAL-00028" summary="UPDATE - Remove prints">
-      <created>1573221085503</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1573221085503</updated>
-    </task>
-    <task id="LOCAL-00029" summary="UPDATE - Remove prints">
-      <created>1573221361060</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1573221361060</updated>
-    </task>
-    <task id="LOCAL-00030" summary="UPDATE - Debug on validation model function">
-      <created>1573221692769</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1573221692769</updated>
-    </task>
-    <task id="LOCAL-00031" summary="UPDATE - Debug on validation model function - using criterion">
-      <created>1573221842999</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1573221842999</updated>
-    </task>
-    <task id="LOCAL-00032" summary="UPDATE - Debug on preconvfeat loeaders">
-      <created>1573222410172</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1573222410172</updated>
-    </task>
-    <task id="LOCAL-00033" summary="UPDATE - Debug on preconvfeat loeaders">
-      <created>1573222547030</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1573222547030</updated>
-    </task>
-    <task id="LOCAL-00034" summary="UPDATE - Debug on preconvfeat loeaders">
-      <created>1573222889952</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1573222889952</updated>
-    </task>
-    <task id="LOCAL-00035" summary="ADD - Python interpreter">
-      <created>1573223932074</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1573223932074</updated>
-    </task>
-    <task id="LOCAL-00036" summary="UPDATE - Henri's push">
-      <created>1573224052277</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1573224052277</updated>
-    </task>
-    <task id="LOCAL-00037" summary="UPDATE - Remove unused constants">
-      <created>1573224188206</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1573224188206</updated>
-    </task>
-    <task id="LOCAL-00038" summary="UPDATE - Add 7th layer">
-      <created>1573224460661</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1573224460661</updated>
-    </task>
-    <task id="LOCAL-00039" summary="UPDATE - Add torch.nn">
-      <created>1573224516680</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1573224516680</updated>
-    </task>
     <task id="LOCAL-00040" summary="UPDATE - Remove all prints now it's working">
       <created>1573224894704</created>
       <option name="number" value="00040" />
@@ -416,7 +332,91 @@
       <option name="project" value="LOCAL" />
       <updated>1573484008207</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="UPDATE - Debug vizu">
+      <created>1573484164476</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1573484164476</updated>
+    </task>
+    <task id="LOCAL-00078" summary="UPDATE - Debug vizu">
+      <created>1573484319723</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1573484319723</updated>
+    </task>
+    <task id="LOCAL-00079" summary="UPDATE - Debug vizu">
+      <created>1573496260258</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1573496260259</updated>
+    </task>
+    <task id="LOCAL-00080" summary="UPDATE - Correction Visu">
+      <created>1573497357250</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1573497357250</updated>
+    </task>
+    <task id="LOCAL-00081" summary="UPDATE - Correction Visu">
+      <created>1573498470760</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1573498470760</updated>
+    </task>
+    <task id="LOCAL-00082" summary="UPDATE - Correction Visu">
+      <created>1573498527733</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1573498527733</updated>
+    </task>
+    <task id="LOCAL-00083" summary="UPDATE - Correction Visu">
+      <created>1573498763125</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1573498763125</updated>
+    </task>
+    <task id="LOCAL-00084" summary="UPDATE - Change image">
+      <created>1573499408069</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1573499408069</updated>
+    </task>
+    <task id="LOCAL-00085" summary="UPDATE - Change image">
+      <created>1573499554813</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1573499554814</updated>
+    </task>
+    <task id="LOCAL-00086" summary="UPDATE - increase epochs number">
+      <created>1573500269477</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1573500269477</updated>
+    </task>
+    <task id="LOCAL-00087" summary="UPDATE - increase epochs number">
+      <created>1573501308697</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1573501308697</updated>
+    </task>
+    <task id="LOCAL-00088" summary="UPDATE - Test on Real Life photo">
+      <created>1573503807491</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1573503807491</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView">
@@ -460,10 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="UPDATE - running positives" />
-    <MESSAGE value="ADD - visualisation" />
-    <MESSAGE value="UPDATE - Lower nb of epochs" />
-    <MESSAGE value="UPDATE - remove code unused" />
     <MESSAGE value="UPDATE - debug" />
     <MESSAGE value="ADD - plt.show" />
     <MESSAGE value="ADD - plt.savefig name" />
@@ -485,7 +481,11 @@
     <MESSAGE value="UPDATE - Test another approach for visu ACM" />
     <MESSAGE value="UPDATE - Debug visu" />
     <MESSAGE value="UPDATE - Debug vizu" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Debug vizu" />
+    <MESSAGE value="UPDATE - Correction Visu" />
+    <MESSAGE value="UPDATE - Change image" />
+    <MESSAGE value="UPDATE - increase epochs number" />
+    <MESSAGE value="UPDATE - Test on Real Life photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPDATE - Test on Real Life photo" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

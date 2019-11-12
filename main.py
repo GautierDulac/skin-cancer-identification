@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Mon Nov 11 16:11:28 2019
@@ -16,12 +17,12 @@ import torch.nn as nn
 
 
 ###Constants
-model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet\n"))
+model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet, 4 for custom built small net\n"))
 if model_select == 1:
     model_applied = models.vgg16(pretrained=True)
 elif model_select == 2:
     model_applied = models.resnet18(pretrained=True)
-else:
+elif model_select == 3:
     model_applied = models.mobilenet_v2(pretrained=True)
 
 batch_size_train = 64
@@ -78,7 +79,11 @@ print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
 
 if model_select == 2:
-    activation_map(model_applied, predictions, all_classes, prepare_dsets())
+    file_name = str(input('Please Select the file on which to save the activation map : Enter the path from the project directory\n'))
+    save_name = str(input('Save the image to the following name\n'))
+
+    activation_map(model_applied, file_name, save_name)
 
 # validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
 # batch_size_preconvfeat, num_workers)
+
