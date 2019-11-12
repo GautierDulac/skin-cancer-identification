@@ -153,6 +153,7 @@ def validation_model(model, dataloader, size, criterion):
         running_pred_positives += torch.sum(preds == 1)
         running_positives += torch.sum(classes.data == 1)
         print(len(classes))
+        print(preds.to('cpu').numpy())
         predictions[i:i + len(classes)] = preds.to('cpu').numpy()
         all_classes[i:i + len(classes)] = classes.to('cpu').numpy()
         all_proba[i:i + len(classes), :] = outputs.data.to('cpu').numpy()
