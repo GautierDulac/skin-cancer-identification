@@ -212,7 +212,5 @@ def training_visualisation(loss_list, acc_list, precision_list, recall_list, mod
     else:
         save_model_applied = "mobilenet_v2"
 
-    random_int = randint(0,100)
-
-    fig.savefig("training_metrics_"+save_model_applied+"_"+str(random_int)+".png")
+    fig.savefig("training_metrics_"+save_model_applied+"_lr_"+str(lr)+".png")
     plt.show()
