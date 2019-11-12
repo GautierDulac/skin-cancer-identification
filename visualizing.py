@@ -181,8 +181,9 @@ def activation_map(resnet_model, file_name, save_name):
     return ()
 
 
-def training_visualisation(loss_list, acc_list, recall_list):
+def training_visualisation(loss_list, acc_list, recall_list, model_select):
     """
+    :param model_select:
     :param loss_list: list of epoch loss
     :param acc_list: list of epoch accuracy
     :param recall_list: list of epoch recall
@@ -202,7 +203,14 @@ def training_visualisation(loss_list, acc_list, recall_list):
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
+    if model_select == 1:
+        save_model_applied = "vgg16"
+    elif model_select == 2:
+        save_model_applied = "resnet18"
+    else:
+        save_model_applied = "mobilenet_v2"
+
     random_int = randint(0,100)
 
-    fig.savefig("training_metrics_"+str(random_int)+".png")
+    fig.savefig("training_metrics_"+save_model_applied+"_"+str(random_int)+".png")
     plt.show()

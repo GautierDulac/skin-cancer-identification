@@ -51,7 +51,7 @@ else:
 
 model_applied = model_applied.to(device)
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
-                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion)
+                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select)
 
 print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
