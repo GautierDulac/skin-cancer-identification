@@ -7,7 +7,6 @@ from modelling import train_model
 from modelling import validation_model
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print('Using gpu: %s ' % torch.cuda.is_available())
 
 ###Constants
 data_dir = 'data'
