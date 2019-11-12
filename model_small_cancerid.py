@@ -64,7 +64,7 @@ def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuf
     """
 
     for param in model.parameters():
-        param.requires_grad = False
+        param.requires_grad = True
 
     train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val,
                                                                                 shuffle_train, shuffle_val, num_workers)
