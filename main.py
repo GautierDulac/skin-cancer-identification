@@ -76,8 +76,8 @@ predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied
 final_visualisation(predictions, all_classes, prepare_dsets(), model_select)
 
 if model_select == 2:
-    file_name = str(input(
-        'Please Select the file on which to save the activation map : Enter the path from the project directory (data/...)\n'))
-    save_name = str(input('Save the image to the following name\n'))
+    while True:
+        file_name = str(input('Please Select the file on which to save the activation map : Enter the path from the project directory (data/...)\n'))
+        save_name = str(input('Save the image to the following name\n'))
 
-    activation_map(model_applied, file_name, save_name)
+        activation_map(model_applied, file_name, save_name)
