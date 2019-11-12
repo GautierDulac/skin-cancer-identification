@@ -143,6 +143,7 @@ def validation_model(model, dataloader, size, criterion):
         print(inputs.size())
         print(outputs.size())
         print(classes.size())
+        print(outputs)
         loss = criterion(outputs, classes)
         _, preds = torch.max(outputs.data, 1)
         # statistics
