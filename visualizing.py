@@ -181,28 +181,36 @@ def activation_map(resnet_model, file_name, save_name):
     return ()
 
 
-def training_visualisation(loss_list, acc_list, recall_list):
+def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr):
     """
+    :param precision_list:
+    :param model_select:
     :param loss_list: list of epoch loss
     :param acc_list: list of epoch accuracy
     :param recall_list: list of epoch recall
     :return: 2 subplots representing the variation throughout training
     """
     fig, (ax1, ax2) = plt.subplots(2, sharex=True)
-    fig.suptitle('Training metrics')
+    fig.suptitle('Training metrics - learning rate = ' + str(lr))
     plt.figure(figsize=(16, 6))
 
     ax1.plot(acc_list, 'r--')
+    ax1.plot(precision_list, 'y--')
     ax1.plot(recall_list, 'g--')
     ax2.plot(loss_list, 'b-')
 
-    ax1.legend(['Accuracy', 'Recall'])
+    ax1.legend(['Accuracy', 'Precision', 'Recall'])
     ax2.legend(['Loss'])
     ax1.set_ylabel('Metric')
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
 
-    random_int = randint(0,100)
+    if model_select == 1:
+        save_model_applied = "vgg16"
+    elif model_select == 2:
+        save_model_applied = "resnet18"
+    else:
+        save_model_applied = "mobilenet_v2"
 
-    fig.savefig("training_metrics_"+str(random_int)+".png")
+    fig.savefig("training_metrics_"+save_model_applied+"_lr_"+str(lr)+".png")
     plt.show()

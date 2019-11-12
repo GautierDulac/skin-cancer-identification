@@ -1,11 +1,3 @@
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 11 16:11:28 2019
-
-@author: Ben
-"""
-
 ###Imports
 from modelling import validation_model_preconvfeat
 from visualizing import final_visualisation, activation_map
@@ -18,6 +10,13 @@ import torch.nn as nn
 
 ###Constants
 model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet, 4 for custom built small net\n"))
+num_epochs = int(input("Select epochs number\n"))
+lr = float(input("Select learning rate\n"))
+
+if (not (model_select in [1, 2, 3, 4])) or num_epochs <= 0 or lr <= 0:
+    raise ValueError("Paramètres incorrects")
+
+
 if model_select == 1:
     model_applied = models.vgg16(pretrained=True)
 elif model_select == 2:
@@ -68,12 +67,13 @@ elif model_select == 4:
     
 
 model_applied = model_applied.to(device)
+
 if model_select == 4:
     predictions, all_proba, all_classes = model_small_cancerid.validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
                                                                    shuffle_train, shuffle_val, num_workers, optimizer)
 else:
     predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
-                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion)
+                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
 
 print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())
@@ -84,6 +84,4 @@ if model_select == 2:
 
     activation_map(model_applied, file_name, save_name)
 
-# validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid,
-# batch_size_preconvfeat, num_workers)
-
+final_visualisation(predctions, all_classes, prepare_dsets())

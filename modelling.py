@@ -57,7 +57,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
 
 
 
-def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None):
+def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None, lr=lr):
     '''
     Computes loss and accuracy on validation test
 
@@ -72,12 +72,14 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
     loss_list = []
     acc_list = []
     recall_list = []
+    precision_list = []
 
     for epoch in range(epochs):
         running_loss = 0.0
         running_corrects = 0
         running_true_positives = 0
         running_positives = 0
+        running_pred_positives = 0
         for inputs, classes in dataloader:
             inputs = inputs.to(device)
             classes = classes.to(device)
@@ -91,16 +93,19 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
             running_loss += loss.data.item()
             running_corrects += torch.sum(preds == classes.data)
             running_true_positives += torch.sum((classes.data == 1) & (preds == classes.data))
+            running_pred_positives += torch.sum(preds == 1)
             running_positives += torch.sum(classes.data == 1)
         epoch_loss = running_loss / size
         epoch_acc = running_corrects.data.item() / size
         epoch_recall = running_true_positives.to('cpu').numpy() / running_positives.to('cpu').numpy()
-        print('Loss: {:.4f} Acc: {:.4f} Recall: {:.4f}'.format(
-            epoch_loss, epoch_acc, epoch_recall))
+        epoch_precision = running_true_positives.to('cpu').numpy() / running_pred_positives.to('cpu').numpy()
+        print('Loss: {:.4f} Acc: {:.4f} Precision: {:.4f} Recall: {:.4f}'.format(
+            epoch_loss, epoch_acc, epoch_precision, epoch_recall))
         loss_list.append(epoch_loss)
         acc_list.append(epoch_acc)
+        precision_list.append(epoch_precision)
         recall_list.append(epoch_recall)
-    training_visualisation(loss_list, acc_list, recall_list)
+    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr)
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
@@ -148,7 +153,8 @@ def validation_model(model, dataloader, size, criterion):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers, optim = None, criterion=None):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers,
+                                 optim = None, criterion=None, model_select=None, num_epochs=num_epochs, lr=lr):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -172,7 +178,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
     '''
 
-    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion)
+    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion, model_select=model_select, lr=lr)
 
 
     predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size, criterion=criterion)
