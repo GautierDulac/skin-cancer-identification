@@ -9,6 +9,9 @@ import torch.nn as nn
 
 ###Constants
 model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet\n"))
+num_epochs = int(input("Select epochs number\n"))
+lr = int(input("Select learning rate\n"))
+
 if model_select == 1:
     model_applied = models.vgg16(pretrained=True)
 elif model_select == 2:
@@ -34,24 +37,26 @@ for param in model_applied.parameters():
 if model_select == 1 :
     model_applied.classifier._modules['6'] = nn.Linear(4096, 2)
     model_applied.classifier._modules['7'] = torch.nn.LogSoftmax(dim=1)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters(), lr=lr)
     criterion = nn.NLLLoss()
 
 elif model_select == 2:
     num_ftrs = model_applied.fc.in_features
     model_applied.fc = nn.Linear(num_ftrs, 2)
-    optimizer = optim.SGD(model_applied.fc.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(model_applied.fc.parameters(), lr=lr, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
 
 else:
     model_applied.classifier._modules['1'] = nn.Linear(1280, 2)
     model_applied.classifier._modules['2'] = torch.nn.LogSoftmax(dim=1)
-    optimizer = torch.optim.Adam(model_applied.classifier.parameters())
+    optimizer = torch.optim.Adam(model_applied.classifier.parameters(), lr=lr)
     criterion = nn.NLLLoss()
 
 model_applied = model_applied.to(device)
+
+
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
-                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select)
+                                                                   shuffle_train, shuffle_val, num_workers, optimizer, criterion, model_select, num_epochs, lr)
 
 print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets())

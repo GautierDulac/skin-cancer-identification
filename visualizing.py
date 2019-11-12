@@ -181,7 +181,7 @@ def activation_map(resnet_model, file_name, save_name):
     return ()
 
 
-def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select):
+def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr):
     """
     :param precision_list:
     :param model_select:
@@ -191,7 +191,7 @@ def training_visualisation(loss_list, acc_list, precision_list, recall_list, mod
     :return: 2 subplots representing the variation throughout training
     """
     fig, (ax1, ax2) = plt.subplots(2, sharex=True)
-    fig.suptitle('Training metrics')
+    fig.suptitle('Training metrics - learning rate = ' + str(lr))
     plt.figure(figsize=(16, 6))
 
     ax1.plot(acc_list, 'r--')

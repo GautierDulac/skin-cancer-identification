@@ -57,7 +57,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
 
 
 
-def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None):
+def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None, lr=lr):
     '''
     Computes loss and accuracy on validation test
 
@@ -105,7 +105,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
         acc_list.append(epoch_acc)
         precision_list.append(epoch_precision)
         recall_list.append(epoch_recall)
-    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select)
+    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr)
 
 def multi_plots(loss_list, recall_list):
     plt.plot(loss_list)
@@ -153,7 +153,8 @@ def validation_model(model, dataloader, size, criterion):
     return predictions, all_proba, all_classes
 
 
-def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers, optim = None, criterion=None, model_select=None):
+def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers,
+                                 optim = None, criterion=None, model_select=None, num_epochs=num_epochs, lr=lr):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
@@ -177,7 +178,7 @@ def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffl
     loaderfeat_valid = create_preconvfeat_loader(loader_valid, model, batch_size_preconvfeat, shuffle_valid)
     '''
 
-    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion, model_select=model_select)
+    train_model(model, dataloader=loader_train, size=train_size, epochs=num_epochs, optimizer= optim, criterion=criterion, model_select=model_select, lr=lr)
 
 
     predictions, all_proba, all_classes = validation_model(model, dataloader=loader_valid, size= valid_size, criterion=criterion)
