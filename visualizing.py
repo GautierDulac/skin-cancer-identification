@@ -177,7 +177,7 @@ def activation_map(resnet_model, file_name, save_name):
     return ()
 
 
-def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr):
+def training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr, num_epochs):
     """
     :param precision_list:
     :param model_select:
@@ -210,5 +210,5 @@ def training_visualisation(loss_list, acc_list, precision_list, recall_list, mod
     elif model_select == 4:
         save_model_applied = "custom_built_small_net"
 
-    fig.savefig("training_metrics_"+save_model_applied+"_lr_"+str(lr)+".png")
+    fig.savefig("training_metrics_"+save_model_applied+"_lr_"+str(lr)+"_" + str(num_epochs)+".png")
     plt.show()

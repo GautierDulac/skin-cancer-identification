@@ -107,7 +107,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
         acc_list.append(epoch_acc)
         precision_list.append(epoch_precision)
         recall_list.append(epoch_recall)
-    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr)
+    training_visualisation(loss_list, acc_list, precision_list, recall_list, model_select, lr, num_epochs)
 
 
 def multi_plots(loss_list, recall_list):
