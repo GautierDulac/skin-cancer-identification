@@ -11,8 +11,8 @@ import torch.nn as nn
 
 ###Constants
 model_select = int(input("Select your model : Enter 1 for vgg , 2 for resnet 18, 3 for mobilenet, 4 for custom built small net\n"))
-num_epochs = int(input("Select epochs number\n"))
-lr = float(input("Select learning rate\n"))
+num_epochs = int(input("Select epochs number (e.g. 10)\n"))
+lr = float(input("Select learning rate (e.g. 0.01)\n"))
 
 if (not (model_select in [1, 2, 3, 4])) or num_epochs <= 0 or lr <= 0:
     raise ValueError("Paramètres incorrects")
