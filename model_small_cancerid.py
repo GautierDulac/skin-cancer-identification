@@ -1,9 +1,6 @@
 ### Imports
 import torch.nn as nn
 import torch.nn.functional as F
-from preprocessing import split_train_valid_sets
-from modelling import train_model
-from modelling import validation_model
 
 ###Constants
 
@@ -43,35 +40,4 @@ class classifier(nn.Module):
         return num_features
 
 
-### main model function
 
-def validation_model_preconvfeat_2(model, batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers,
-                                   optim=None, criterion=None, model_select=None, num_epochs=None, lr=None):
-    """
-
-    :param model:
-    :param batch_size_train:
-    :param batch_size_val:
-    :param shuffle_train:
-    :param shuffle_val:
-    :param num_workers:
-    :param optim:
-    :param criterion:
-    :param model_select:
-    :param num_epochs:
-    :param lr:
-    :return:
-    """
-
-    for param in model.parameters():
-        param.requires_grad = True
-
-    train_size, valid_size, loader_train, loader_valid = split_train_valid_sets(batch_size_train, batch_size_val,
-                                                                                shuffle_train, shuffle_val, num_workers)
-
-    train_model(model, loader_train, batch_size_train, epochs=num_epochs, optimizer=optim, criterion=criterion,
-                model_select=model_select, lr=lr)
-
-    predictions, all_proba, all_classes = validation_model(model, loader_valid, batch_size_val, criterion)
-
-    return predictions, all_proba, all_classes
