@@ -52,7 +52,7 @@ def create_preconvfeat_loader(dataloader, model, batch_size_preconvfeat, shuffle
     return loaderfeat
 
 
-def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None, lr=lr):
+def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=None, model_select=None, lr=None):
     '''
     Computes loss and accuracy on validation test
 
@@ -158,7 +158,7 @@ def validation_model(model, dataloader, size, criterion):
 
 
 def validation_model_preconvfeat(model, batch_size_train, batch_size_val, shuffle_train, shuffle_valid, num_workers,
-                                 optim=None, criterion=None, model_select=None, num_epochs=num_epochs, lr=lr):
+                                 optim=None, criterion=None, model_select=None, num_epochs=None, lr=None):
     '''
     Computes predictions, probabilities and classes for validation set with precomputed extracted features
 
