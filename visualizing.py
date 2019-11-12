@@ -173,7 +173,7 @@ def activation_map(resnet_model, file_name, save_name):
     height, width, _ = img.shape
     heatmap = cv2.applyColorMap(cv2.resize(CAM1s[0], (width, height)), cv2.COLORMAP_JET)
     result = heatmap * 0.3 + img * 0.5
-    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[0]) + '_Image_' + TEST_SAVE + '.jpg', result)
+    cv2.imwrite('CAM_False_' + classes[idx[1]] + "_Prob_" + str(probs[1]) + '_Image_' + TEST_SAVE + '.jpg', result)
     return ()
 
 
