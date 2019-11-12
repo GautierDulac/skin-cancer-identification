@@ -209,8 +209,10 @@ def training_visualisation(loss_list, acc_list, precision_list, recall_list, mod
         save_model_applied = "vgg16"
     elif model_select == 2:
         save_model_applied = "resnet18"
-    else:
+    elif model_select == 3:
         save_model_applied = "mobilenet_v2"
+    elif model_select == 4:
+        save_model_applied = "custom_built_small_net"
 
     fig.savefig("training_metrics_"+save_model_applied+"_lr_"+str(lr)+".png")
     plt.show()
