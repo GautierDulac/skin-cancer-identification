@@ -98,7 +98,7 @@ def train_model(model, dataloader, size, epochs=1, optimizer=None, criterion=Non
             running_pred_positives += torch.sum(preds == 1)
             running_positives += torch.sum(classes.data == 1)
         epoch_loss = running_loss / size
-        epoch_acc = running_corrects.data.item() / size
+        epoch_acc = running_corrects.to('cpu').numpy() / size
         epoch_recall = running_true_positives.to('cpu').numpy() / running_positives.to('cpu').numpy()
         epoch_precision = running_true_positives.to('cpu').numpy() / running_pred_positives.to('cpu').numpy()
         print('Loss: {:.4f} Acc: {:.4f} Precision: {:.4f} Recall: {:.4f}'.format(
@@ -142,6 +142,7 @@ def validation_model(model, dataloader, size, criterion):
         outputs = model(inputs)
         print(inputs.size())
         print(outputs.size())
+        print(classes.size())
         loss = criterion(outputs, classes)
         _, preds = torch.max(outputs.data, 1)
         # statistics
@@ -155,7 +156,7 @@ def validation_model(model, dataloader, size, criterion):
         all_proba[i:i + len(classes), :] = outputs.data.to('cpu').numpy()
         i += len(classes)
     epoch_loss = running_loss / size
-    epoch_acc = running_corrects.data.item() / size
+    epoch_acc = running_corrects.to('cpu').numpy() / size
     epoch_recall = running_true_positives.to('cpu').numpy() / running_positives.to('cpu').numpy()
     epoch_precision = running_true_positives.to('cpu').numpy() / running_pred_positives.to('cpu').numpy()
     print('Loss: {:.4f} Acc: {:.4f} Precision: {:.4f} Recall: {:.4f}'.format(
