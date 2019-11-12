@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 11 12:54:15 2019
-
-@author: Ben
-"""
 ### Imports
 import os
 import torch
