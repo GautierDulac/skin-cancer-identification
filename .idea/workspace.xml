@@ -1,68 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="UPDATE - debug end, remove prints">
-      <change afterPath="$PROJECT_DIR$/results/CAM_False_benign_Prob_0.048838172_Image_malignant_184.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/CAM_False_benign_Prob_0.44048885_Image_benign_105.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/CAM_False_malignant_Prob_0.025456794_Image_benign_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/CAM_True_benign_Prob_0.9745432_Image_benign_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/CAM_True_malignant_Prob_0.5595112_Image_benign_105.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/CAM_True_malignant_Prob_0.9511618_Image_malignant_184.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-1-[0, 0, 0, 0, 0, 0, 0, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-1-[0, 0, 0, 1, 0, 0, 1, 0].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-1-[1, 0, 0, 1, 0, 0, 1, 0].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-1-[1, 0, 1, 1, 1, 1, 0, 0].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-1-[1, 1, 0, 1, 0, 1, 0, 0].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-2-[0, 0, 0, 1, 0, 1, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-2-[0, 1, 0, 0, 1, 0, 0, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-2-[0, 1, 1, 0, 1, 0, 0, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Correct-2-[1, 1, 1, 0, 0, 1, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-1-[0, 0, 0, 1, 0, 1, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-1-[0, 0, 1, 0, 1, 1, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-1-[0, 1, 1, 1, 0, 0, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-1-[1, 1, 0, 0, 1, 0, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-1-[1, 1, 0, 1, 1, 0, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-2-[0, 1, 0, 0, 1, 0, 0, 0].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-2-[0, 1, 0, 1, 1, 0, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-2-[1, 0, 0, 1, 1, 1, 1, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Error-2-[1, 1, 0, 1, 1, 1, 0, 1].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/test_benign_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/test_benign_105.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/test_malignant_184.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.001_30_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.002_20_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_vgg16_lr_0.002_30_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_vgg16_lr_0.005_10_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_vgg16_lr_0.01_5_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_vgg16_lr_0.05_10_epochs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/training_metrics_vgg16_lr_0.05_20_epochs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.005_10_epochs.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.005_10_epochs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.01_10_epochs.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/training_metrics_resnet18_lr_0.01_10_epochs.png" afterDir="false" />
-    </list>
+    <list default="true" id="9cf9947c-dde7-4561-a1af-ab5942864d9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modelling.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="42" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="63" />
     <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="height" value="843" />
   </component>
   <component name="ProjectId" id="1THeUhOJfgVJ6hM3RziMSaxL3e8" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="skin-cancer-identification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="skin-cancer-identification" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -122,13 +113,6 @@
       <option name="presentableId" value="Default" />
       <updated>1573048805389</updated>
       <workItem from="1573121467085" duration="12763000" />
-    </task>
-    <task id="LOCAL-00088" summary="UPDATE - Test on Real Life photo">
-      <created>1573503807491</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1573503807491</updated>
     </task>
     <task id="LOCAL-00089" summary="UPDATE - Test on Real Life photo">
       <created>1573504255485</created>
@@ -466,8 +450,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573561455632</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="ADD - final presentation">
+      <created>1573637356144</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1573637356145</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="250000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,6 +472,33 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="29" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -487,6 +508,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -510,8 +537,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ADD - In gitignore" />
     <MESSAGE value="UPDATE - Reformat 4th model using other functions" />
     <MESSAGE value="UPDATE - using GPU in main" />
     <MESSAGE value="UPDATE - Default value for parameters" />
@@ -536,9 +561,19 @@
     <MESSAGE value="UPDATE - debug" />
     <MESSAGE value="UPDATE - preconvfeat print" />
     <MESSAGE value="ADD - Results pictures" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD - Results pictures" />
+    <MESSAGE value="ADD - final presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD - final presentation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/skin_cancer_identification$main.coverage" NAME="main Coverage Results" MODIFIED="1573121545831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/modelling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
