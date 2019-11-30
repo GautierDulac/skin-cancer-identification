@@ -3,14 +3,13 @@ import os
 import torch
 from torchvision import transforms, datasets
 
-
 ###Constants
 data_dir = "data"
-batch_size_train=64
-batch_size_val=5
-shuffle_train=True
-shuffle_val=False
-num_workers=6
+batch_size_train = 64
+batch_size_val = 5
+shuffle_train = True
+shuffle_val = False
+num_workers = 6
 
 
 ###Main function
@@ -31,12 +30,15 @@ def split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuf
     train_size = dset_sizes['train']
     valid_size = dset_sizes['valid']
 
-    loader_train = torch.utils.data.DataLoader(dsets['train'], batch_size=batch_size_train, shuffle=shuffle_train, num_workers=num_workers)
-    loader_valid = torch.utils.data.DataLoader(dsets['valid'], batch_size=batch_size_val, shuffle=shuffle_val, num_workers=num_workers)
+    loader_train = torch.utils.data.DataLoader(dsets['train'], batch_size=batch_size_train, shuffle=shuffle_train,
+                                               num_workers=num_workers)
+    loader_valid = torch.utils.data.DataLoader(dsets['valid'], batch_size=batch_size_val, shuffle=shuffle_val,
+                                               num_workers=num_workers)
 
     return train_size, valid_size, loader_train, loader_valid
 
-#split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers=6)
+
+# split_train_valid_sets(batch_size_train, batch_size_val, shuffle_train, shuffle_val, num_workers=6)
 
 
 def prepare_dsets():

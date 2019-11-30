@@ -68,16 +68,17 @@ elif model_select == 4:
 model_applied = model_applied.to(device)
 
 predictions, all_proba, all_classes = validation_model_preconvfeat(model_applied, batch_size_train, batch_size_val,
-                                                                       shuffle_train, shuffle_val, num_workers,
-                                                                       optimizer, criterion, model_select, num_epochs,
-                                                                       lr)
+                                                                   shuffle_train, shuffle_val, num_workers,
+                                                                   optimizer, criterion, model_select, num_epochs,
+                                                                   lr)
 
 # print(predictions)
 final_visualisation(predictions, all_classes, prepare_dsets(), model_select)
 
 if model_select == 2:
     while True:
-        file_name = str(input('Please Select the file on which to apply the activation map : Enter the path from the project directory (data/...)\n'))
+        file_name = str(input(
+            'Please Select the file on which to apply the activation map : Enter the path from the project directory (data/...)\n'))
         save_name = str(input('Save the image to the following name\n'))
 
         activation_map(model_applied, file_name, save_name)
